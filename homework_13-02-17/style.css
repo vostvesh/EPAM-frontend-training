@@ -1,0 +1,53 @@
+div, p {
+  box-sizing: border-box;
+}
+#outer-div {
+  width: 300px;
+  height: 300px;
+  border: 4px solid indigo;
+  border-radius: 40px;
+  position: relative;
+}
+.inner-div {
+  width: 200px;
+  height: 200px;
+  border: 3px solid dodgerblue;
+  border-radius: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+p {
+  border: 2px solid red;
+  border-radius: 40px;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -75px;
+  color: red;
+}
+p {
+  color: green;
+}
+div p {
+  color: orange;
+}
+.inner-div p {
+  color: lightblue;
+}
+#outer-div p {
+  color: orangered;
+}
+p {
+  color: silver !important;
+}
+p {
+  color: darkgoldenrod !important;
+}
+
