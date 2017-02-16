@@ -1,0 +1,17 @@
+.content {
+  height: 200px;
+  width: 200px;
+  border: 1px solid #000;
+  background-size: 100%;
+  /*
+  './' - в css не работает
+  */
+  background-image: url('./imgs/picture.jpg');
+}
+.content {
+  /*
+  '/' - Не работает с локальными файлами в windows, но идеально для сервера
+  При локальной разработке в windows идет к корневому диску
+  */
+  background-image: url('/imgs/picture.jpg'); 
+}
