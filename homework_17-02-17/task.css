@@ -1,0 +1,26 @@
+html {
+  font-size: 20px;
+  background-color: rgba(100, 100, 100, 0.3);
+  text-align: center;
+}
+
+div:nth-child(odd) {
+  color: blue;
+  font-size: 2rem;
+}
+div:nth-child(even) {
+  color: red;
+}
+div {
+  letter-spacing: 10px;
+  line-height: 3rem;
+}
+div:nth-child(-1n + 3){
+  text-transform: uppercase;
+}
+/*div:not(.four) {
+  text-transform: uppercase;
+}*/
+.four ~ div {
+  text-transform: lowercase;
+}
