@@ -1,0 +1,71 @@
+/*
+Для отступа между датой и временем, в таблице можно было 
+использовать пустую ячейку, но в задании сказано таблица 6*2,
+поэтому извращался с марджинами и бордер спейсингом:)
+Так же не сказано по поводу размеров. Поэтому все размеры из головы.
+*/
+form * {
+  padding: 0;
+  margin: 0;
+}
+form {
+  width: 340px;
+  height: 340px;
+  font-family: sans-serif;
+}
+.label:not(td) {
+  display: inline-block;
+}
+.label {
+  color: rgb(193, 193, 193);
+  font-size: 0.8em;
+  padding-bottom: 10px;
+}
+hr {
+  background-color: rgb(193, 193, 193);
+  border: none;
+  height: 1px;
+  margin: 5px 0;
+}
+table {
+  width: 105%;
+  vertical-align: center;
+  margin-top: 25px;
+  border-spacing: 15px 0;
+  margin-left: -15px;
+}
+tr:nth-child(3n - 1) td {
+  border-bottom: 3px solid rgb(214, 9, 9);
+  background-image: url('svgs/triangle-down.svg');
+  background-repeat: no-repeat;
+  height: 30px; 
+}
+tr:nth-child(3n - 1) td:first-child {
+  width: 210px;
+  background-position: 194px center;
+}
+tr:nth-child(3n - 1) td:last-child {
+  width: 102px;
+  background-position: 86px center;
+}
+tr:nth-child(3n) td {
+  color: rgb(214, 9, 9);
+  font-size: 0.8em;
+  padding-bottom: 15px;
+  padding-top: 7px;
+}
+.toFrameLink {
+  float: right;
+  margin: 10px 0;
+  color: green;
+  text-decoration: none;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-align: center;
+}
+.toFrameLink img {
+  width: 60px;
+}
+iframe {
+  margin-top: 10px;
+}
