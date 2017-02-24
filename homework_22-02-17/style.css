@@ -1,9 +1,3 @@
-/*
-Для отступа между датой и временем, в таблице можно было 
-использовать пустую ячейку, но в задании сказано таблица 6*2,
-поэтому извращался с марджинами и бордер спейсингом:)
-Так же не сказано по поводу размеров. Поэтому все размеры из головы.
-*/
 form * {
   padding: 0;
   margin: 0;
@@ -29,7 +23,6 @@ hr {
 }
 table {
   width: 105%;
-  vertical-align: center;
   margin-top: 25px;
   border-spacing: 15px 0;
   margin-left: -15px;
@@ -65,7 +58,4 @@ tr:nth-child(3n) td {
 }
 .toFrameLink img {
   width: 60px;
-}
-iframe {
-  margin-top: 10px;
 }
