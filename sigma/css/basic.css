@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html, body {
+  font-size: 10px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+.sigma-page {
+  width: 90%;
+  max-width: 1710px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+}
+@media (max-width: 1330px) {
+  html {
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,31 @@
+.menu {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 5px;
+}
+.menu__item {
+  list-style: none;
+  padding: 0 23px;
+}
+.menu__item-link {
+  padding-bottom: 10px;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.3);
+}
+.menu__item-link:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 990px) {
+  .menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .menu__item {
+    padding-bottom: 10px;
+  }
+}

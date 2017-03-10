@@ -1,0 +1,12 @@
+.logo__title {
+  font-size: 3.4rem;
+  font-weight: 400;  
+  color: #303030;
+}
+.logo__subtitle {
+  margin-top: 1.2em;
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #8c8c8c;
+}

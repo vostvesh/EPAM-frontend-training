@@ -1,0 +1,24 @@
+.contacts {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.contacts__item {
+  padding-bottom: 7.6em;
+}
+.contacts__item--form {
+  flex-grow: 1;
+  flex-basis: 70%;
+}
+.contacts__item--address {
+  flex-grow: 1;
+  flex-basis: 35%;
+  padding: 1em 1.5em;
+}
+@media (max-width: 990px) {
+  .contacts {
+    flex-wrap: wrap;
+  }
+  .contacts__item {
+    padding-bottom: 0;
+  }
+}

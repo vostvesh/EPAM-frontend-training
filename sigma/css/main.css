@@ -1,0 +1,27 @@
+.main {
+  flex-grow: 1;
+}
+.main__features {
+  margin-top: 1px;
+}
+.main__gallery {
+  margin-top: 1px;
+}
+.main__gallery:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.main__section-title {
+  margin-top: 1px;
+  padding: 9.4em 0;
+  background: url('../imgs/tm-sigma-00.jpg') 
+                    no-repeat center center fixed;
+  background-size: cover;
+}
+.main__abilities {
+  margin-top: 1px;
+}
+.main__contacts {
+  margin-top: 1px;
+}

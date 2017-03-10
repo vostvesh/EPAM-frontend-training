@@ -1,0 +1,30 @@
+.footer__items {
+  border-top: 1px solid #ccc;
+  padding: 3.2em 0 5em 0;
+}
+.footer__info {
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #363636;
+}
+.footer__info-company {
+  color: #2287bb;
+}
+.footer__link {
+  float: right;
+  font-size: 1.6rem;
+  color: #2287bb;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .footer__info {
+    display: inline-block;
+    width: 100%;
+  }
+  .footer__link {
+    float: right;
+    margin-top: 20px;
+  }
+}

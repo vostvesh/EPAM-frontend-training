@@ -1,0 +1,82 @@
+.form {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.form__fields {
+  flex-grow: 1;
+  flex-basis: 50%;
+  padding: 0 1.5em;
+}
+.form__field-group {
+  margin: 2em 0;
+}
+.form__field-label {
+  padding: 0.3em 0 0.5em 0;
+  display: block;
+  font-size: 1.8rem;
+}
+.form__field-input {
+  width: 100%;
+  margin-top: 0.3em;
+  padding: 0.5em 0.7em;
+  font-size: 1.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form__field-input--textarea {
+  font-family: 'Open Sans', sans-serif;
+  height: 8em;
+}
+.form__field-input--select {
+  color: #5c5c5c;
+}
+.form__field-checkbox {
+  display: block;
+  font-size: 1.8rem;
+}
+.form__field-check {
+  display: none;
+}
+.form__field-check-fake {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #cecece;
+}
+.form__field-check:checked ~ .form__field-check-fake {
+  background-color: #2287bb;
+}
+.form__field-submit {
+  margin-top: 17px;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 100;
+  background-color: #5bb85d;
+  padding: 14px 23px;
+}
+.form__field-submit {
+  background-color: #5bb85d;
+}
+.form__field-submit:hover {
+  background-color: #7ad37c;
+}
+.form__field-submit:active {
+  background-color: #4b9c4e;
+}
+
+@media (max-width: 990px) {
+  .form {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .form__field-group {
+    margin-top: 0;
+  }
+}

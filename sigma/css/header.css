@@ -1,0 +1,39 @@
+.header__head {
+  border-bottom: 1px solid #b0b0b0;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.header__main {
+  margin-top: 1.5em;
+}
+.header__title {
+  background: url('../imgs/tm-sigma-00.jpg') 
+                  no-repeat center center fixed;
+  background-size: cover;
+}
+.header__logo {
+  padding: 2.6em 0 4em 0;
+  flex-grow: 2;
+}
+.header__navbar {
+  padding-top: 7.1em;
+  flex-grow: 10;
+}
+.header__title {
+  padding: 14.4em 0;
+}
+
+@media (max-width: 990px) {
+  .header__head {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .header__logo {
+    flex-grow: 1;
+  }
+  .header__navbar {
+    padding: 0;
+    padding-bottom: 2em;
+    flex-grow: 1;
+  }
+}
