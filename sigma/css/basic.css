@@ -14,7 +14,7 @@ html, body {
   max-width: 1710px;
   margin: 0 auto;
   display: flex;
-  flex-flow: column;
+  flex-flow: column nowrap;
 }
 @media (max-width: 1330px) {
   html {

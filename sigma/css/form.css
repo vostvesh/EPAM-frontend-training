@@ -73,8 +73,11 @@
 }
 @media (max-width: 768px) {
   .form {
-    flex-direction: column;
+    /*flex-direction: column;*/
     margin-top: 20px;
+  }
+  .form__fields {
+    flex-basis: 100%;
   }
   .form__field-group {
     margin-top: 0;
