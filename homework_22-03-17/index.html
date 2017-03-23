@@ -19,17 +19,17 @@
 
       <fieldset class="form__item form-field">
         <label class="form-field__label">Field Label</label>
-        <input class="form-field__input" type="text" name="action" placeholder="Form Action">
+        <input class="form-field__input" type="text" name="action" placeholder="Form Action" data-id="0">
       </fieldset>
 
       <fieldset class="form__item form-field">
         <label class="form-field__label">Field Label</label>
-        <input class="form-field__input" type="text" name="action" placeholder="Form Action">
+        <input class="form-field__input" type="text" name="action" placeholder="Form Action" data-id="1">
       </fieldset>
 
       <fieldset class="form__item form-field">
         <label class="form-field__label">Choice Type</label>
-        <select class="form-field__select" name="type">
+        <select class="form-field__select" name="type" data-id="0">
           <option class="form-field__option" name="type" value="Radio Buttons" selected>Radio Buttons</option>
           <option class="form-field__option" name="type" value="Checkboxes">Checkboxes</option>
           <option class="form-field__option" name="type" value="Base Buttons">Base Buttons</option>
@@ -40,13 +40,13 @@
       <fieldset class="form__item form-field form-field--bordered">
         <label class="form-field__label" for="">Choices</label>
         <div class="form-field__radio-items">
-          <input class="form-field__radio-item" checked type="radio" name="subcribe" value="true">
+          <input class="form-field__radio-item" checked type="radio" name="subcribe" value="true" data-id="0">
           <div class="form-field__radio-fake"></div>
           <span class="form-field__radio-item-name">Subscribe</span>
           <input class="form-field__radio-cancel" type="button">
         </div>
         <div class="form-field__radio-items">
-          <input class="form-field__radio-item" type="radio" name="subcribe" value="false">
+          <input class="form-field__radio-item" type="radio" name="subcribe" value="false" data-id="1">
           <div class="form-field__radio-fake"></div>          
           <span class="form-field__radio-item-name">Unsubscribe</span>
           <input class="form-field__radio-cancel" type="button">
@@ -54,13 +54,13 @@
       </fieldset>
 
       <div class="form__checkbox">
-        <input class="form__checkbox-item" type="checkbox" name="wrap">
+        <input class="form__checkbox-item" type="checkbox" name="wrap" data-id="0">
         <span class="form__checkbox-name">Wrap in paragraph tags?</span>
       </div>
-      <input class="form__submit" type="submit" value="Add to form">
+      <input class="form__submit" type="submit" value="Add to form" data-id="0">
     </form>
   </div>
-  <script src="index.js"></script>
+  <script src="saveFormData.js"></script>
 </body>
 
 </html>
