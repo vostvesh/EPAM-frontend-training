@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <form class="form" action="/_mc4wp_action" method="GET">
+      <h4 class="form__title">Form Action
+        <span class="form__title-info">_mc4wp_action</span>
+      </h4>
+      <p class="form__subtitle">
+        This field will allow your visitors to choose whether they would like to subscribe or unsubscribe
+      </p>
+
+      <fieldset class="form__item form-field">
+        <label class="form-field__label">Field Label</label>
+        <input class="form-field__input" type="text" name="action" placeholder="Form Action">
+      </fieldset>
+
+      <fieldset class="form__item form-field">
+        <label class="form-field__label">Field Label</label>
+        <input class="form-field__input" type="text" name="action" placeholder="Form Action">
+      </fieldset>
+
+      <fieldset class="form__item form-field">
+        <label class="form-field__label">Choice Type</label>
+        <select class="form-field__select" name="type">
+          <option class="form-field__option" name="type" value="Radio Buttons" selected>Radio Buttons</option>
+          <option class="form-field__option" name="type" value="Checkboxes">Checkboxes</option>
+          <option class="form-field__option" name="type" value="Base Buttons">Base Buttons</option>
+          <option class="form-field__option" name="type" value="Mega Buttons">Mega Buttons</option>
+        </select>
+      </fieldset>
+
+      <fieldset class="form__item form-field form-field--bordered">
+        <label class="form-field__label" for="">Choices</label>
+        <div class="form-field__radio-items">
+          <input class="form-field__radio-item" checked type="radio" name="subcribe" value="true">
+          <div class="form-field__radio-fake"></div>
+          <span class="form-field__radio-item-name">Subscribe</span>
+          <input class="form-field__radio-cancel" type="button">
+        </div>
+        <div class="form-field__radio-items">
+          <input class="form-field__radio-item" type="radio" name="subcribe" value="false">
+          <div class="form-field__radio-fake"></div>          
+          <span class="form-field__radio-item-name">Unsubscribe</span>
+          <input class="form-field__radio-cancel" type="button">
+        </div>
+      </fieldset>
+
+      <div class="form__checkbox">
+        <input class="form__checkbox-item" type="checkbox" name="wrap">
+        <span class="form__checkbox-name">Wrap in paragraph tags?</span>
+      </div>
+      <input class="form__submit" type="submit" value="Add to form">
+    </form>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
