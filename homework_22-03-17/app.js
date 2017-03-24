@@ -100,10 +100,12 @@ const form = document.querySelector('.form');
 
 if (!isObjectEmpty(storedData)) {
   saveRestore('restore', FIELDS_NAME, form, storedData);
+} else {
+  storedData = saveRestore('save', FIELDS_NAME, form);    
 }
 
 form.addEventListener('submit', () => {
-  storedData = saveRestore('save', FIELDS_NAME, form);  
+  storedData = saveRestore('save', FIELDS_NAME, form);
   localStorage.setItem('formData', JSON.stringify(storedData));  
 });
 
