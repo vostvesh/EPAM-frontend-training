@@ -81,7 +81,7 @@ html {
   z-index: -1;
 }
 .form-field__radio-item:checked + .form-field__radio-fake {
-  background-image: url('assets/circle.svg');
+  background-image: url('img/circle.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 50%;
@@ -101,7 +101,7 @@ html {
   height: 10px;
   background: none;
   border: none;
-  background-image: url('assets/cross.svg');
+  background-image: url('img/cross.svg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 10px 10px;
@@ -147,7 +147,7 @@ html {
   z-index: -1;
 }
 .form__checkbox-item:checked + .form__checkbox-name:before {
-  background-image: url('assets/checkmark.svg');
+  background-image: url('img/checkmark.svg');
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 50%;

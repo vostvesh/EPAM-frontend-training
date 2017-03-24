@@ -2,10 +2,9 @@ function getDataProperties(element, fieldName) {
   let data = {};
   switch (fieldName) {
     case FIELDS_NAME.INPUTS:
-      data.value = element.value || "";
+    case FIELDS_NAME.SELECTS:    
+      data.value = element.value;
       break;
-    case FIELDS_NAME.SELECTS:
-      data.selected = element.selected;
     case FIELDS_NAME.CHECKBOXES:
     case FIELDS_NAME.RADIOS:
       data.checked = element.checked || false;
@@ -26,8 +25,24 @@ function setDataField(fieldsName) {
   return data;
 }
 
-function getData(fieldsName, parentElement) {
-  let data = setDataField(fieldsName);
+function saveData(element, fieldName, data){
+  let dataId = element.dataset.id;
+  let dataProperties = getDataProperties(element, fieldName);
+  data[fieldName][dataId] = dataProperties;
+}
+
+function restoreData(element, fieldName, data) {
+  let id = element.dataset.id;
+  if (data[fieldName][id] && data[fieldName][id].value) {
+    element.value = data[fieldName][id].value;
+  }
+  if (data[fieldName][id] && data[fieldName][id].checked) {
+    element.checked = data[fieldName][id].checked;
+  }
+}
+
+function saveRestore(saveOrRestore, fieldsName, parentElement, storedData) {
+  let data = storedData || setDataField(fieldsName);
   for (let key in fieldsName) {
     if (fieldsName.hasOwnProperty(key)) {
       let currentFieldName = fieldsName[key];
@@ -36,62 +51,18 @@ function getData(fieldsName, parentElement) {
       for (let i = 0; i < elements.length; i++) {
         let currentElement = elements[i];
         if (currentElement.dataset.id) {
-          let dataId = currentElement.dataset.id;
-          let dataProperties = getDataProperties(currentElement, currentFieldName);
-          data[currentFieldName][dataId] = dataProperties;
+          if (saveOrRestore === 'save') {
+            saveData(currentElement, currentFieldName, data);
+          } else if (saveOrRestore === 'restore') {
+            restoreData(currentElement, currentFieldName, data);
+          } else {
+            throw new Error('Неверный параметр: ' + saveOrRestore);
+          }
         }
       }
     }
   }
   return data;
-}
-
-function saveData(){
-  getElements()
-}
-
-function restoreData() {
-
-}
-
-function getElements() {
-  for (let key in fieldsName) {
-    if (fieldsName.hasOwnProperty(key)) {
-      let currentFieldName = fieldsName[key];
-      let elements = parentElement.querySelectorAll(DOM_ELEMENTS_SELECTORS[currentFieldName]);
-
-      for (let i = 0; i < elements.length; i++) {
-        let currentElement = elements[i];
-        if (currentElement.dataset.id) {
-          let dataId = currentElement.dataset.id;
-          let dataProperties = getDataProperties(currentElement, currentFieldName);
-          data[currentFieldName][dataId] = dataProperties;
-        }
-      }
-    }
-  }
-}
-
-function restoreData(fieldsName, data, parentElement) {
-  for (let key in fieldsName) {
-    if (fieldsName.hasOwnProperty(key)) {
-      let currentFieldName = fieldsName[key];
-      let elements = parentElement.querySelectorAll(DOM_ELEMENTS_SELECTORS[currentFieldName]);
-
-      for (let i = 0; i < elements.length; i++) {
-        let currentElement = elements[i];
-        if (currentElement.dataset.id) {
-          let id = currentElement.dataset.id;
-          if (data[currentFieldName][id] && data[currentFieldName][id].value) {
-            currentElement.value = data[currentFieldName][id].value;
-          }
-          if (data[currentFieldName][id] && data[currentFieldName][id].checked) {
-            currentElement.checked = data[currentFieldName][id].checked;
-          }
-        }
-      }
-    }
-  }
 }
 
 function isObjectEmpty(object) {
@@ -103,6 +74,7 @@ function isObjectEmpty(object) {
   }
   return true;
 }
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (performance.navigation.type == 1) {
   localStorage.setItem('formData', '');
@@ -119,26 +91,23 @@ const FIELDS_NAME = {
 
 const DOM_ELEMENTS_SELECTORS = {
   [FIELDS_NAME.INPUTS]: 'input[type="text"]',
-  [FIELDS_NAME.SELECTS]: 'input[type="radio"]',
-  [FIELDS_NAME.RADIOS]: 'select',
+  [FIELDS_NAME.SELECTS]: 'select',
+  [FIELDS_NAME.RADIOS]: 'input[type="radio"]',
   [FIELDS_NAME.CHECKBOXES]: 'input[type="checkbox"]'
 }
 
 const form = document.querySelector('.form');
 
 if (!isObjectEmpty(storedData)) {
-  restoreData(FIELDS_NAME, storedData, form);
+  saveRestore('restore', FIELDS_NAME, form, storedData);
 }
 
-let elements = getData(FIELDS_NAME, form);
-console.log(elements);
-
 form.addEventListener('submit', () => {
-  storedData = getData(FIELDS_NAME, form);  
+  storedData = saveRestore('save', FIELDS_NAME, form);  
   localStorage.setItem('formData', JSON.stringify(storedData));  
 });
 
 window.addEventListener('beforeunload', () => {
-  storedData = getData(FIELDS_NAME, form);
+  storedData = saveRestore('save' ,FIELDS_NAME, form);
   localStorage.setItem('formData', JSON.stringify(storedData));
 });
