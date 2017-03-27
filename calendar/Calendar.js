@@ -10,22 +10,24 @@ function Calendar(parentNodeName, domData, options) {
   this._footerTimeText = this._rootElement.getElementsByClassName('clanedar__time-text')[0];
   this._footerWeekdayText = this._rootElement.getElementsByClassName('calendar__weekday-text')[0];
   this._daysText = this._rootElement.getElementsByClassName('calendar__day-text');
+  this._selectPreviousMonth = this._rootElement.getElementsByClassName('calendar__header-select')[0];
+  this._selectNextMonth = this._rootElement.getElementsByClassName('calendar__header-select')[1];
+  this._selectDays = this._rootElement.getElementsByClassName('calendar__days')[0];
 
   this.currentDay = new Date();
   this.date = null;
   this.amPm = this.currentDay.getHours() <= 12 ? 'AM' : 'PM';
   this.timeAsString = this.currentDay.getHours() + ':' + ('0' + this.currentDay.getMinutes()).slice(-2) + ' ' + this.amPm;
-  // this.day = this.currentDay.getDate();
-  // this.weekday = this.currentDay.getDay();
-  // this.weekdayAsString = this.currentDay.toLocaleString('en-us', {weekday: 'long'}).toUpperCase();
-  // this.month = this.currentDay.getMonth();
-  // this.monthAsString = this.currentDay.toLocaleString('en-us', {month: 'long'}).toUpperCase();
-  // this.year = this.currentDay.getFullYear();
-  // this.daysInMonth = new Date(this.month, this.year, 0).getDate();
-  // this.daysInPreviousMonth = new Date(this.month - 1, this.year, 0).getDate();
-  // this.firstDay = (new Date(this.date.getYear(), this.date.getMonth(), 1)).getDay();
 
-  this.setDate('1-15-1917');
+  this.createDayNames();
+  this.createDays();
+  this.setDate();
+  this.stopTimeWatch();
+  this.startTimeWatch()
+
+  this.setPrevMonth();
+  this.setNextMonth();
+  this.setCurrentDay();
 
 }
 
@@ -110,21 +112,21 @@ Calendar.prototype.createDays = function() {
 
 Calendar.prototype.setDays = function(firstDay, numberOfDays, previousMonthEndDay) {
   let days = this._daysText;
-  // firstDay = firstDay === 0 ? 7 : firstDay;
   let dayNumber = 1;
   let nextMonthStartDay = 1;
   previousMonthEndDay = previousMonthEndDay - firstDay; 
 
   for (let i = 0; i < days.length; i++) {
     let day = days[i];
-
+    day.classList.remove('calendar__day--current');
+    day.classList.remove('calendar__day-text--anotherMonth');
+    
     if ((i + 1) % 7 === 0) {
       days[i - 1].classList.add('calendar__day--weekend');
       day.classList.add('calendar__day--weekend');
     }
-
+    
     if (this.day + (previousMonthEndDay - (previousMonthEndDay - firstDay)) === i) {
-      console.log(this.day, i);
       day.classList.add('calendar__day--current');
     }
 
@@ -139,15 +141,6 @@ Calendar.prototype.setDays = function(firstDay, numberOfDays, previousMonthEndDa
     }
   }
 };
-
-// Calendar.prototype.setCurrentDay = function() {
-//   for (let i = 0; i < this._daysText.length; i++) {
-//     if (this.day === i) {
-//       console.log(this.day, i);
-//       this._daysText[i].classList.add('calendar__day--current');
-//     }
-//   }
-// }
 
 Calendar.prototype.setHeaderText = function() {
   this._headerMonthText.innerText = this.monthAsString + ' ';
@@ -167,17 +160,13 @@ Calendar.prototype.setDate = function(date) {
   this.month = this.date.getMonth();
   this.monthAsString = this.date.toLocaleString('en-us', {month: 'long'}).toUpperCase();
   this.year = this.date.getFullYear();
-  this.daysInMonth = new Date(this.month, this.year, 0).getDate();
-  this.daysInPreviousMonth = new Date(this.month - 1, this.year, 0).getDate();
-  this.firstDay = (new Date(this.date.getYear(), this.date.getMonth(), 1)).getDay();
+  this.daysInMonth = new Date(this.year, this.month + 1, 0).getDate();
+  this.daysInPreviousMonth = (new Date(this.year, this.month, 0)).getDate();
+  this.firstDay = new Date(this.date.getYear(), this.date.getMonth(), 1).getDay();
 
   this.setDays(this.firstDay, this.daysInMonth, this.daysInPreviousMonth);
-  console.log(this.firstDay, this.daysInMonth, this.daysInPreviousMonth);
-  this.stopTimeWatch();
-  this.startTimeWatch()
   this.setHeaderText();
   this.setFooterText();
-  // this.setCurrentDay();
 };
 
 Calendar.prototype.getDate = function() {
@@ -186,7 +175,14 @@ Calendar.prototype.getDate = function() {
 
 Calendar.prototype.startTimeWatch = function() {
   this.timeWatchID = setInterval(function(that){
-    that.setDate(that.getDate().setSeconds(that.getDate().getSeconds() + 1));
+    that.currentDay = new Date(that.currentDay.setSeconds(that.currentDay.getSeconds() + 1));
+    that.amPm = that.currentDay.getHours() <= 12 ? 'AM' : 'PM';
+    that.timeAsString = that.currentDay.getHours() + ':' + ('0' + that.currentDay.getMinutes()).slice(-2) + ' ' + that.amPm; 
+    if (that.currentDay.getHours() == 0 && that.currentDay.getMinutes() == 0) {
+      that.setDate(that.getDate().setSeconds(that.getDate().getSeconds() + 1));      
+    } else if (that.currentDay.getSeconds() == 0) {
+      that.setFooterText();      
+    }
   }, 1000, this);
 };
 
@@ -194,6 +190,26 @@ Calendar.prototype.stopTimeWatch = function() {
   clearInterval(this.timeWatchID);
 }
 
-let date = new Date();
-date.getDay(1);
-console.log(date.getDay(26));
+Calendar.prototype.setPrevMonth = function() {
+  let self = this;
+  this._selectPreviousMonth.addEventListener('click', () => {
+    self.setDate(self.date.setMonth(self.month - 1));
+  });  
+};
+
+Calendar.prototype.setNextMonth = function() {
+  let self = this;
+  this._selectNextMonth.addEventListener('click', () => {
+    self.setDate(self.date.setMonth(self.month + 1));
+  });  
+};
+
+Calendar.prototype.setCurrentDay = function() {
+  let self = this;
+  this._selectDays.addEventListener('click', (e) => {
+    if (e.target.className.indexOf('calendar__day-text--anotherMonth') === -1) {
+      let day = e.target.innerText;
+      self.setDate(self.date.setDate(day));
+    }
+  });  
+};
