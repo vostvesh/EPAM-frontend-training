@@ -77,7 +77,7 @@ function isObjectEmpty(object) {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 if (performance.navigation.type == 1) {
-  localStorage.setItem('formData', '');
+  localStorage.removeItem('formData');
 }
 
 let storedData = localStorage.getItem('formData') ? JSON.parse(localStorage.getItem('formData')) : {};
