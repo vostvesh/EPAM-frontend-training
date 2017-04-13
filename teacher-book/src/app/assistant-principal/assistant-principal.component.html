@@ -1,0 +1,7 @@
+<div *ngIf="isTeacherName()">
+  <app-teacher-book [teacherName]="teacherName"></app-teacher-book>
+</div>
+<div *ngIf="!isTeacherName()">
+  <input class="input-name" type="text" [(ngModel)]="teacherName" placeholder="Please input your name">
+  <button class="get-teacher-book" (click)="renderTeacherBook()">Get Teacher Book</button> 
+</div>

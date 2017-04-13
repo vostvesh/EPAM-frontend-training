@@ -1,0 +1,11 @@
+.input-name {
+  padding: 5px;
+}
+.get-teacher-book {
+  padding: 5px;
+  background-color: #02796B;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
