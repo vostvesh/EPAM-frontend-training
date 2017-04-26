@@ -1,0 +1,73 @@
+<form class="new-event" #eventsForm>
+  <div class="new-event__header">
+    <h3 class="new-event__header-text">ADD NEW EVENT</h3>
+  </div>
+  <div class="new-event__field">
+    <h4 class="new-event__field-decription" for="">Info</h4>   
+    <input  class="new-event__field-text" type="text" name="category" placeholder="Category" 
+            [(ngModel)]="category"
+    >
+    <input  class="new-event__field-text" type="text" name="description" placeholder="Description" 
+            [(ngModel)]="description"
+    >
+  </div>
+  <div class="new-event__field">
+    <h4 class="new-event__field-decription" for="">Location</h4>    
+    <input  class="new-event__field-text" type="text" name="country" placeholder="Country" 
+            [(ngModel)]="country"
+    >
+    <input  class="new-event__field-text" type="text" name="city" placeholder="City" 
+            [(ngModel)]="city"
+    >
+  </div>
+  <div class="new-event__field">
+    <input  class="new-event__field-text" type="text" name="date-start" placeholder="DateStart" 
+    [(ngModel)]="startDate">
+    <h4 class="new-event__field-decription" for="">Date Start</h4>
+    <input  class="new-event__field-text" type="date" name="date-start" placeholder="DateStart" 
+            [(ngModel)]="startDate"
+    >
+    <input  class="new-event__field-text" type="number" min="0" max="23" name="time-start-h" placeholder="Hours" 
+            (keyup)="setStartHours($event)" value={{startHours}}
+    >
+    <input  class="new-event__field-text" type="number" min="0" max="59" name="time-start-m" placeholder="Minutes" 
+            (keyup)="setStartMinutes($event)" value={{startMinutes}}
+    > 
+  </div>
+  <div class="new-event__field">
+    <h4 class="new-event__field-decription" for="">Date End</h4>
+    <input  class="new-event__field-text" type="date" name="date-end" placeholder="DateStart" 
+            [(ngModel)]="endDate"
+    >
+    <input  class="new-event__field-text" type="number" min="0" max="23" name="time-end-h" placeholder="Hours" 
+            (keyup)="setEndHours($event)" value={{endHours}}
+    >
+    <input  class="new-event__field-text" type="number" min="0" max="59" name="time-end-m" placeholder="Minutes" 
+            (keyup)="setEndMinutes($event)" value={{endMinutes}}
+    > 
+  </div>
+  <div class="new-event__field">
+    <h4 class="new-event__field-decription" for="">Members</h4>    
+    <input  class="new-event__field-text" type="number" min="0" name="number-of-members" placeholder="Number of members" 
+            [(ngModel)]="numberOfMembers"
+    >
+    <input  class="new-event__field-text" type="number" min="0" max="120" name="age-min" placeholder="Min. Age" 
+            [(ngModel)]="minAge"
+    >
+    <input  class="new-event__field-text" type="number" min="0" max="120" name="age-max" placeholder="Max. Age" 
+            [(ngModel)]="maxAge"
+    >
+    <select class="new-event__field-text" name="gender"
+            [(ngModel)]="gender"
+    >
+      <option class="new-event__field-option" value="male">male</option>
+      <option class="new-event__field-option" value="female">female</option>
+      <option class="new-event__field-option" value="both">both</option>
+    </select>
+  </div>
+  <div class="new-event__field">
+    <input  class="new-event__field-submit" type="submit" 
+            (click)="setSocialEvent()"
+    >
+  </div>
+</form>

@@ -1,0 +1,53 @@
+.user-dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.user-dashboard__sidebar {
+  width: 20%;
+  height: 100%;
+  background-color: #383a4c;
+  overflow: auto;
+}
+.user-dashboard__main {
+  width: 80%;
+  height: 100%;
+  position: relative;
+  overflow: auto;
+  background-image: url('../../assets/imgs/background-hd.jpg');
+}
+
+.profile-info {
+  background-color: #424458;
+  padding: 40px 0;
+}
+.profile-info__img {
+  display: block;
+  border: 4px solid #8285a0;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.profile-info__name {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dashboard-content {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 40px; 
+}
+
+.dashboard-navigation__link {
+  list-style: none;
+  border-bottom: 1px solid #8285a0;
+  text-transform: uppercase;
+  padding: 10px;
+}
+
+.dashboard-navigation__link:hover {
+  cursor: pointer;
+}

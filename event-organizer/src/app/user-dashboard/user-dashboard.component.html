@@ -1,0 +1,19 @@
+<div class="user-dashboard">
+  <div class="user-dashboard__sidebar">
+    <div class="profile-info">
+      <img class="profile-info__img" src="../../assets/imgs/user-photo.png" alt="">
+      <p class="profile-info__name">Jhon Doe</p>
+    </div>
+    <div class="dashboard-navigation">
+      <ul class="dashboard-navigation__links">
+        <li class="dashboard-navigation__link" routerLink="/events-calendar" routerLinkActive="active">Events Calendar</li>
+        <li class="dashboard-navigation__link" routerLink="/new-event" routerLinkActive="active">Add Event</li>
+      </ul>
+    </div>
+  </div>
+  <div class="user-dashboard__main">
+    <div class="dashboard-content">
+      <router-outlet></router-outlet>      
+    </div>
+  </div>
+</div>

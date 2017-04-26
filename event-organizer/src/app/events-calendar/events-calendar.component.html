@@ -1,0 +1,18 @@
+<div class="events-calendar">
+  <div class="calendar">
+    <div class="calendar__daynames">
+      <div class="calendar__dayname" *ngFor="let dayname of getDayNames()">
+        {{dayname}}
+      </div>
+    </div>
+    <div class="calendar__weeks" *ngFor="let week of days">
+      <div class="calendar__days" *ngFor="let day of week">
+        <span class="calendar__global-events"></span>
+        <span class="calendar__user-events">{{getUserEvents(day)}}</span>
+        <span class="calendar__day">{{day}}</span>
+      </div>
+    </div>
+    <button (click)="prevMonth()">+</button>
+    <button (click)="nextMonth()">-</button>
+  </div>
+</div>
