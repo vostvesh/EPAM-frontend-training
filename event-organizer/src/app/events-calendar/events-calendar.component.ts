@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
-import { Calendar } from '../models/calendar';
+import { Calendar } from '../_models/calendar';
 
-import { SocialEventsService } from '../social-events.service';
+import { SocialEventService } from '../_services/social-event.service';
 
-import { SocialEvent } from '../models/social-event/social-event';
-import { CalendarEvents } from '../models/calendar-events';
+import { SocialEvent } from '../_models/social-event/social-event';
+import { CalendarEventsSorter } from '../_models/calendar-events-sorter';
 
 @Component({
   selector: 'app-events-calendar',
@@ -16,17 +17,29 @@ export class EventsCalendarComponent implements OnInit {
   private _calendar: Calendar = new Calendar();
 
   public days: Array<Array<number>>;
-  public userEvents: SocialEvent[];
-  public calendarEvents: CalendarEvents;
+  public userEvents: SocialEvent[] = [];
 
-  public userEventsCounter: number = 0;
+  public calendarEventsSorter: CalendarEventsSorter;
+  public userCalendarEvents: SocialEvent[] = [];
 
-  constructor(private socialEventsService: SocialEventsService) {}
+  constructor(private SocialEventService: SocialEventService,
+              private router: Router) {}
 
   ngOnInit() {
     this.days = this._calendar.getCalendarDays();
-    this.userEvents = this.socialEventsService.getUserEvents('vasya');
-    this.calendarEvents = new CalendarEvents(this.userEvents);
+
+    this.userEvents = this.SocialEventService.getUserEvents('vasya');
+
+    this.calendarEventsSorter = new CalendarEventsSorter(this.userEvents);
+  }
+
+  public isEventDay(date: Date): boolean {
+    this.setUserCalendarEvents(date);
+    return this.userCalendarEvents.length > 0 ? true : false;
+  }
+
+  public setUserCalendarEvents(date: Date): void {
+    this.userCalendarEvents = this.calendarEventsSorter.sortEventsByDay(date);
   }
 
   public getDayNames(): Array<string> {
@@ -47,9 +60,9 @@ export class EventsCalendarComponent implements OnInit {
     this.updateCalendarDays();
   }
 
-  public getUserEvents(day): number {
-    let date = new Date(this._calendar.getYear(), this._calendar.getMonth(), day);
-    return this.calendarEvents.getEventsCalendarByDay(date).length || 0;
+  public goToUserEventsList(date: Date): void {
+    // this.setUserCalendarEvents(date);
+    this.router.navigate(['user-dashboard/user-events-list', date.toDateString()]);
   }
 
 }

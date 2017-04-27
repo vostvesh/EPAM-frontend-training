@@ -156,11 +156,16 @@ export class Calendar {
       }
 
       if (i < firstDayInMonth) {
-        calendar[j].unshift(prevMonthDay--);
+        let month = this.getMonth() - 1;
+        let date = new Date(this.getYear(), month, prevMonthDay--);
+        calendar[j].unshift(date);
       } else if (i < daysInCurrentMonth + firstDayInMonth) {
-        calendar[j].push(currenMonthDay++);
+        let date = new Date(this.getYear(), this.getMonth(), currenMonthDay++);
+        calendar[j].push(date);
       } else {
-        calendar[j].push(nextMonthDay++);
+        let month = this.getMonth() + 1;
+        let date = new Date(this.getYear(), month, nextMonthDay++);
+        calendar[j].push(date);
       }
     }
 

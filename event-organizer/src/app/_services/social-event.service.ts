@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
-import { SocialEvent } from './models/social-event/social-event';
+import { SocialEvent } from '../_models/social-event/social-event';
 
 @Injectable()
-export class SocialEventsService {
+export class SocialEventService {
   private KEY = 'eventsList';
 
   public getUserEvents(userName: string): SocialEvent[] {
@@ -11,7 +11,7 @@ export class SocialEventsService {
     let ls = JSON.parse(localStorage.getItem(this.KEY));
 
     if (ls !== null && ls[userName] !== null) {
-      let userDataStorage = ls[userName] || [];
+      let userDataStorage = ls[userName];
       for (let event of userDataStorage) {
         userEvents.push(SocialEvent.fromJson(event));
       }

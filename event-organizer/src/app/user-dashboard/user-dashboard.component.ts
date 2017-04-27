@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from '../_services/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-dashboard',
   templateUrl: './user-dashboard.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authService: AuthService, private _roter: Router) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this._authService.logout();
+    this._roter.navigate(['login']);
   }
 
 }

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
-import { SocialEventLocation } from '../models/social-event/social-event-location';
-import { SocialEventDate } from '../models/social-event/social-event-date';
-import { SocialEventInfo } from '../models/social-event/social-event-info';
-import { SocialEventMembers } from '../models/social-event/social-event-members';
-import { SocialEvent } from '../models/social-event/social-event';
+import { SocialEventLocation } from '../_models/social-event/social-event-location';
+import { SocialEventDate } from '../_models/social-event/social-event-date';
+import { SocialEventInfo } from '../_models/social-event/social-event-info';
+import { SocialEventMembers } from '../_models/social-event/social-event-members';
+import { SocialEvent } from '../_models/social-event/social-event';
 
-import { SocialEventsService } from '../social-events.service';
+import { SocialEventService } from '../_services/social-event.service';
 
 @Component({
   selector: 'app-new-event',
@@ -40,14 +40,10 @@ export class NewEventComponent implements OnInit {
   public maxAge: string;
   public gender: string;
 
-  constructor(private socialEventsService: SocialEventsService) { }
+  constructor(private SocialEventService: SocialEventService) { }
 
   ngOnInit() {
     this.userName = this._userName;
-
-    let se = this.socialEventsService.getUserEvents(this._userName);
-
-    console.log(se);
 
     this._socialEvent = new SocialEvent(this._userName);
   }
@@ -129,8 +125,7 @@ export class NewEventComponent implements OnInit {
     this._socialEvent.location = this._socialEventLocation;
     this._socialEvent.members = this._socialEventMembers;
 
-    console.log(this._socialEvent);
-    this.socialEventsService.storeUserEvent(this._userName, this._socialEvent);
+    this.SocialEventService.storeUserEvent(this._userName, this._socialEvent);
   }
 
 }

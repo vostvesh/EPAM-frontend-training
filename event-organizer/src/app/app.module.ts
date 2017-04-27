@@ -6,15 +6,20 @@ import { RouterModule } from '@angular/router';
 
 import { AgmCoreModule } from 'angular2-google-maps/core';
 
-import { appRoutes } from './routes/routes';
+import { appRoutes } from './app.routing';
 
-import { SocialEventsService } from './social-events.service';
+import { SocialEventService } from './_services/social-event.service';
+import { AuthService } from './_services/auth.service';
+import { AuthGuard } from './_services/auth.guard.service';
 
 import { AppComponent } from './app.component';
 import { EventsCalendarComponent } from './events-calendar/events-calendar.component';
 import { NewEventComponent } from './new-event/new-event.component';
 import { LoginComponent } from './login/login.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { UserEventsListComponent } from './user-events-list/user-events-list.component';
+import { RegisterComponent } from './register/register.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -24,7 +29,10 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
     EventsCalendarComponent,
     NewEventComponent,
     LoginComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    UserEventsListComponent,
+    RegisterComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +43,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
       apiKey: 'AIzaSyD1SAKfYFsz4YRHhatbwUOZMgdVZ4AYEHw'
     })
   ],
-  providers: [SocialEventsService],
+  providers: [SocialEventService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

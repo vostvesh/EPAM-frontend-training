@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SocialEventsService } from './social-events.service';
+import { SocialEventService } from './social-event.service';
 
 describe('SocialEventsListService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SocialEventsService]
+      providers: [SocialEventService]
     });
   });
 
-  it('should ...', inject([SocialEventsService], (service: SocialEventsService) => {
+  it('should ...', inject([SocialEventService], (service: SocialEventService) => {
     expect(service).toBeTruthy();
   }));
 });

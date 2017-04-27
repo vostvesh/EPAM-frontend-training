@@ -74,6 +74,10 @@ export class SocialEvent {
     this._members = members;
   }
 
+  public get members(): SocialEventMembers {
+    return this._members;
+  }
+
   public get dateStart(): SocialEventDate {
     return this._dateStart;
   }

@@ -6,13 +6,15 @@
       </div>
     </div>
     <div class="calendar__weeks" *ngFor="let week of days">
-      <div class="calendar__days" *ngFor="let day of week">
-        <span class="calendar__global-events"></span>
-        <span class="calendar__user-events">{{getUserEvents(day)}}</span>
-        <span class="calendar__day">{{day}}</span>
+      <div class="calendar__days" *ngFor="let day of week; let i=index">
+        <div class="calendar__global-events">all events: 0</div>
+        <div class="calendar__day">{{day.getDate()}}</div>
+        <div class="calendar__user-events" (click)="goToUserEventsList(day)" *ngIf="isEventDay(day)">my events: {{userCalendarEvents.length}}</div>
       </div>
     </div>
-    <button (click)="prevMonth()">+</button>
-    <button (click)="nextMonth()">-</button>
-  </div>
+    <button (click)="prevMonth()"><</button>
+    <button (click)="nextMonth()">></button>
+  </div>  
 </div>
+<router-outlet></router-outlet>
+

@@ -1,8 +1,9 @@
 <div class="app">
-  <div class="app__dashboard" *ngIf="isUser">
-  <app-user-dashboard></app-user-dashboard>
-  </div>
-  <div class="app__login" *ngIf="!isUser">
+  <!--<div class="app__dashboard" *ngIf="isUser">
+    <app-user-dashboard></app-user-dashboard>
+  </div>-->
+  <!--<div class="app__login" *ngIf="!isUser">
     <app-login></app-login>
-  </div>
+  </div>-->
+  <router-outlet></router-outlet>
 </div>
