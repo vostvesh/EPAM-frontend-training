@@ -1,0 +1,67 @@
+.app-register {
+  height: 100%;
+  background-color: #19160b;
+  box-sizing: border-box;
+  padding-top: 40px;
+}
+.register {
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: #383a4c;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px #000;
+}
+.register__header {
+
+}
+.register__title {
+
+}
+.register__content {
+  padding: 20px;
+}
+.register__field {
+  margin-bottom: 10px;  
+}
+.register__field--change {
+  text-align: left;
+}
+.register__field-title {
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #5e5f6e;
+}
+.register__text {
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #606170;
+}
+.register__checkbox {
+  display: inline;
+  text-align: left;
+}
+.register__submit {
+  padding: 10px;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  background-color: #dc6263;
+}
+.register__submit:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 2px #606170;
+}
+.register__submit:focus {
+  outline: none;
+  box-shadow: none;
+}

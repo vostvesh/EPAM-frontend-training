@@ -2,6 +2,7 @@ export class User {
   private _userName: string;
   private _firstName: string;
   private _lastName: string;
+  private _gender: string;
   private _birthday: Date;
   private _age: number;
 
@@ -11,18 +12,21 @@ export class User {
       firstName: user.firstName,
       lastName: user.lastName,
       birthday: user.birthday,
+      gender: user.gender,
       age: user.age
     };
   }
 
   public static fromJson(json: any): User {
-    return new User(json.userName, json.firstName, json.lastName, json.birthday);
+    let birthday = new Date(json.birthday);
+    return new User(json.userName, json.firstName, json.lastName, json.gender, birthday);
   }
 
-  constructor(userName: string, firstName: string, lastName: string, birthday: Date) {
+  constructor(userName: string, firstName: string, lastName: string, gender: string, birthday: Date) {
     this._userName = this.isUserName(userName) ? userName : '';
     this._firstName = this.isCorrectName(firstName) ? firstName : '';
     this._lastName = this.isCorrectName(lastName) ? lastName : '';
+    this._gender = this.isGender(gender) ? gender : '';
     this._birthday = this.isBirsthday(birthday) ? birthday : null;
     this.setAge(this._birthday);
   }
@@ -58,6 +62,13 @@ export class User {
     return true;
   }
 
+  private isGender(gender: string): boolean {
+    if (!gender) {
+      throw new Error(`Incorrect {gender}: ${gender}`);
+    }
+    return true;
+  }
+
   private setAge(birthday: Date): void {
     this._age = new Date().getFullYear() - birthday.getFullYear();
   }
@@ -72,6 +83,10 @@ export class User {
 
   public get lastName(): string {
     return this._lastName;
+  }
+
+  public get gender(): string {
+    return this._gender;
   }
 
   public get birthday(): Date {

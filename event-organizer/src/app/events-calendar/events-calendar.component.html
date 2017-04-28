@@ -7,9 +7,9 @@
     </div>
     <div class="calendar__weeks" *ngFor="let week of days">
       <div class="calendar__days" *ngFor="let day of week; let i=index">
-        <div class="calendar__global-events">all events: 0</div>
+        <div class="calendar__global-events" (click)="onAllEventsList(day)" *ngIf="isAllEventDay(day)">all events: {{allCalendarEvents.length}}</div>
         <div class="calendar__day">{{day.getDate()}}</div>
-        <div class="calendar__user-events" (click)="goToUserEventsList(day)" *ngIf="isEventDay(day)">my events: {{userCalendarEvents.length}}</div>
+        <div class="calendar__user-events" (click)="onUserEventsList(day)" *ngIf="isUserEventDay(day)">my events: {{userCalendarEvents.length}}</div>
       </div>
     </div>
     <button (click)="prevMonth()"><</button>

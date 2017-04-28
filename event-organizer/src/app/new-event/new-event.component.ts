@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { SocialEventLocation } from '../_models/social-event/social-event-location';
 import { SocialEventDate } from '../_models/social-event/social-event-date';
@@ -7,6 +8,7 @@ import { SocialEventMembers } from '../_models/social-event/social-event-members
 import { SocialEvent } from '../_models/social-event/social-event';
 
 import { SocialEventService } from '../_services/social-event.service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-new-event',
@@ -14,7 +16,7 @@ import { SocialEventService } from '../_services/social-event.service';
   styleUrls: ['./new-event.component.css']
 })
 export class NewEventComponent implements OnInit {
-  private _userName: string = 'vasya';
+  private _userName: string;
 
   private _socialEvent: SocialEvent;
   private _socialEventLocation: SocialEventLocation;
@@ -40,10 +42,16 @@ export class NewEventComponent implements OnInit {
   public maxAge: string;
   public gender: string;
 
-  constructor(private SocialEventService: SocialEventService) { }
+  /**maps */
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
+  constructor(private SocialEventService: SocialEventService, 
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.userName = this._userName;
+    this._userName = this.authService.getUserName();
 
     this._socialEvent = new SocialEvent(this._userName);
   }
@@ -126,6 +134,7 @@ export class NewEventComponent implements OnInit {
     this._socialEvent.members = this._socialEventMembers;
 
     this.SocialEventService.storeUserEvent(this._userName, this._socialEvent);
+    this.router.navigate(['user-dashboard/events-calendar']);
   }
 
 }

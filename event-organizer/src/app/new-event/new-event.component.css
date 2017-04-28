@@ -77,3 +77,8 @@
 .new-event__field--date {
   
 }
+
+/*maps*/
+.sebm-google-map-container {
+  height: 300px;
+}

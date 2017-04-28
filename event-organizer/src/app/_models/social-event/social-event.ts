@@ -54,6 +54,10 @@ export class SocialEvent {
     }
   }
 
+  public get userName(): string {
+    return this._userName;
+  }
+
   public set info(info: SocialEventInfo) {
     this._info = info;
   }

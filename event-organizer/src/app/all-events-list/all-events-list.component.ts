@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 
 import { SocialEventService } from '../_services/social-event.service';
@@ -8,16 +8,17 @@ import { CalendarEventsSorter } from '../_models/calendar-events-sorter';
 import { SocialEvent } from '../_models/social-event/social-event';
 
 @Component({
-  selector: 'app-user-events-list',
-  templateUrl: './user-events-list.component.html',
-  styleUrls: ['./user-events-list.component.css']
+  selector: 'app-all-events-list',
+  templateUrl: './all-events-list.component.html',
+  styleUrls: ['./all-events-list.component.css']
 })
-export class UserEventsListComponent implements OnInit {
+export class AllEventsListComponent implements OnInit {
+
   private _userName: string;
 
   public date: Date;
   public calendarEventSorter: CalendarEventsSorter;
-  public userEvents: SocialEvent[];
+  public allEvents: SocialEvent[];
 
   constructor(private activatedRoute: ActivatedRoute, 
               private router: Router,
@@ -28,12 +29,12 @@ export class UserEventsListComponent implements OnInit {
   ngOnInit() {
     this.SocialEventService = new SocialEventService();
     this._userName = this.authService.getUserName();
-    this.userEvents = this.SocialEventService.getUserEvents(this._userName);
-    this.calendarEventSorter = new CalendarEventsSorter(this.userEvents);
+    this.allEvents = this.SocialEventService.allEvents;
+    this.calendarEventSorter = new CalendarEventsSorter(this.allEvents);
 
     this.activatedRoute.params.subscribe(params => {
       let date = new Date(params['date']);
-      this.userEvents = this.calendarEventSorter.sortEventsByDay(date);
+      this.allEvents = this.calendarEventSorter.sortEventsByDay(date);
     });
   }
 

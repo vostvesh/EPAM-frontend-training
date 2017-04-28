@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Calendar } from '../_models/calendar';
+import { User } from '../_models/user';
 
 import { SocialEventService } from '../_services/social-event.service';
+import { AuthService } from '../_services/auth.service';
 
 import { SocialEvent } from '../_models/social-event/social-event';
 import { CalendarEventsSorter } from '../_models/calendar-events-sorter';
@@ -15,32 +17,52 @@ import { CalendarEventsSorter } from '../_models/calendar-events-sorter';
 })
 export class EventsCalendarComponent implements OnInit {
   private _calendar: Calendar = new Calendar();
+  private _userName: string;
 
   public days: Array<Array<number>>;
   public userEvents: SocialEvent[] = [];
+  public allEvents: SocialEvent[] = [];
 
-  public calendarEventsSorter: CalendarEventsSorter;
+  public calendarUserEventsSorter: CalendarEventsSorter;
+  public calendarAllEventsSorter: CalendarEventsSorter;
   public userCalendarEvents: SocialEvent[] = [];
+  public allCalendarEvents: SocialEvent[] = [];
 
   constructor(private SocialEventService: SocialEventService,
-              private router: Router) {}
+              private router: Router,
+              private authServise: AuthService) {}
 
   ngOnInit() {
     this.days = this._calendar.getCalendarDays();
 
-    this.userEvents = this.SocialEventService.getUserEvents('vasya');
+    this._userName = this.authServise.getUserName();
 
-    this.calendarEventsSorter = new CalendarEventsSorter(this.userEvents);
+    this.userEvents = this.SocialEventService.getUserEvents(this._userName);
+    this.allEvents = this.SocialEventService.allEvents;
+
+    this.calendarUserEventsSorter = new CalendarEventsSorter(this.userEvents);
+    this.calendarAllEventsSorter = new CalendarEventsSorter(this.allEvents);
   }
 
-  public isEventDay(date: Date): boolean {
+  public isUserEventDay(date: Date): boolean {
     this.setUserCalendarEvents(date);
     return this.userCalendarEvents.length > 0 ? true : false;
   }
 
-  public setUserCalendarEvents(date: Date): void {
-    this.userCalendarEvents = this.calendarEventsSorter.sortEventsByDay(date);
+  public isAllEventDay(date: Date): boolean {
+    this.setAllCalendarEvents(date);
+    return this.allCalendarEvents.length > 0 ? true : false;
   }
+
+  public setUserCalendarEvents(date: Date): void {
+    this.userCalendarEvents = this.calendarUserEventsSorter.sortEventsByDay(date);
+  }
+
+  public setAllCalendarEvents(date: Date): void {
+    this.allCalendarEvents = this.calendarAllEventsSorter.sortEventsByDay(date);
+  }
+
+
 
   public getDayNames(): Array<string> {
     return this._calendar.getCalendarWeekDaysNames();
@@ -60,9 +82,14 @@ export class EventsCalendarComponent implements OnInit {
     this.updateCalendarDays();
   }
 
-  public goToUserEventsList(date: Date): void {
+  public onUserEventsList(date: Date): void {
     // this.setUserCalendarEvents(date);
     this.router.navigate(['user-dashboard/user-events-list', date.toDateString()]);
+  }
+
+  public onAllEventsList(date: Date): void {
+    // this.setUserCalendarEvents(date);
+    this.router.navigate(['user-dashboard/all-events-list', date.toDateString()]);
   }
 
 }

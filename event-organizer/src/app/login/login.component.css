@@ -1,4 +1,11 @@
+.app-login {
+  height: 100%;
+  background-color: #19160b;
+  box-sizing: border-box;
+  padding-top: 40px;
+}
 .login {
+  margin-top: 40px;
   max-width: 400px;
   margin: 0 auto;
   border-radius: 6px;
@@ -37,4 +44,23 @@
 .login__submit-btn:hover {
   cursor: pointer;
   box-shadow: 0px 0px 2px 2px #606170;
+}
+.login__submit-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+.login__register-btn {
+  padding: 10px;
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  background-color: #dc6263;
+}
+.login__register-btn:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 2px 2px #606170;
+}
+.login__register-btn:focus {
+  outline: none;
+  box-shadow: none;
 }

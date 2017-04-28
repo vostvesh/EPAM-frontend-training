@@ -20,6 +20,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { UserEventsListComponent } from './user-events-list/user-events-list.component';
 import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AllEventsListComponent } from './all-events-list/all-events-list.component';
 
 
 
@@ -32,7 +33,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     UserDashboardComponent,
     UserEventsListComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AllEventsListComponent
   ],
   imports: [
     BrowserModule,

@@ -9,16 +9,16 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  private _userName: string;
-  private _password: string;
+  // private _userName: string;
+  // private _password: string;
 
   constructor(private _authServis: AuthService, private _router: Router) { }
 
   ngOnInit() {
   }
 
-  public login(username: string, password: string) {
-    this._authServis.login().subscribe(() => {
+  public login(userName: string, password: string) {
+    this._authServis.login(userName, password).subscribe(() => {
       if (this._authServis.isLoggedIn) {
         this._router.navigate(['']);
       }
@@ -27,6 +27,10 @@ export class LoginComponent implements OnInit {
 
   public logout(): void {
     this._authServis.logout();
+  }
+
+  public register(): void {
+    this._router.navigate(['register']);
   }
 
 }
