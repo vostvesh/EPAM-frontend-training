@@ -1,17 +1,17 @@
-.app-login {
+.login {
   height: 100%;
   background-color: #19160b;
   box-sizing: border-box;
   padding-top: 40px;
 }
-.login {
+.login__form {
   margin-top: 40px;
-  max-width: 400px;
+  width: 400px;
   margin: 0 auto;
   border-radius: 6px;
-  background-color: #383a4c;
+  background-color: #393A4C;
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #000;  
@@ -24,43 +24,54 @@
   margin: 0;
 }
 .login__field {
-  margin: 10px;
+  width: 80%;
+  position: relative;
+  margin: 15px auto;
+}
+.login__field-cancel {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  color: #dc6263;
+}
+.login__field-cancel:hover {
+  font-size: 110%;
 }
 .login__field-input {
-  width: 80%;
+  width: 100%;
   font-size: 16px;
   color: #fff;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #606170;
 }
-.login__submit-btn {
+.login__submit {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  margin-top: 20px;
+}
+.login__btn {
   padding: 10px;
+  width: 100px;
   border: none;
   color: #fff;
   border-radius: 6px;
-  background-color: #64a0d7;
 }
-.login__submit-btn:hover {
+.login__btn:hover {
   cursor: pointer;
   box-shadow: 0px 0px 2px 2px #606170;
 }
-.login__submit-btn:focus {
+.login__btn:focus {
   outline: none;
   box-shadow: none;
 }
-.login__register-btn {
-  padding: 10px;
-  border: none;
-  color: #fff;
-  border-radius: 6px;
-  background-color: #dc6263;
+.login__btn--submit {
+  background-color: #64a0d7;  
 }
-.login__register-btn:hover {
-  cursor: pointer;
-  box-shadow: 0px 0px 2px 2px #606170;
-}
-.login__register-btn:focus {
-  outline: none;
-  box-shadow: none;
+.login__btn--register {
+  background-color: #dc6263;  
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { SocialEvent } from '../_models/social-event/social-event';
+import { SocialEvent } from '../_models/social-event';
 
 @Injectable()
 export class SocialEventService {
@@ -38,7 +38,7 @@ export class SocialEventService {
     let userEvents: SocialEvent[] = [];
 
     for (let event of this.allEvents) {
-      if (event.userName === userName) {
+      if (event.author === userName) {
         userEvents.push(event);
       }
     }

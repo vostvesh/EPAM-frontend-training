@@ -5,7 +5,7 @@ import { SocialEventService } from '../_services/social-event.service';
 import { AuthService } from '../_services/auth.service';
 
 import { CalendarEventsSorter } from '../_models/calendar-events-sorter';
-import { SocialEvent } from '../_models/social-event/social-event';
+import { SocialEvent } from '../_models/social-event';
 
 @Component({
   selector: 'app-all-events-list',
@@ -35,6 +35,7 @@ export class AllEventsListComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let date = new Date(params['date']);
       this.allEvents = this.calendarEventSorter.sortEventsByDay(date);
+      this.date = date;
     });
   }
 

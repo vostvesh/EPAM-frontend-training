@@ -9,12 +9,11 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  // private _userName: string;
-  // private _password: string;
 
   constructor(private _authServis: AuthService, private _router: Router) { }
 
   ngOnInit() {
+
   }
 
   public login(userName: string, password: string) {
@@ -31,6 +30,10 @@ export class LoginComponent implements OnInit {
 
   public register(): void {
     this._router.navigate(['register']);
+  }
+
+  public onResetValue(input: any): void {
+    input.value = '';
   }
 
 }

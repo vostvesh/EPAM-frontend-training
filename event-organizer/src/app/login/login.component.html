@@ -1,19 +1,19 @@
-<div class="app-login">
-  <form class="login">
+<div class="login">
+  <form class="login__form">
     <div class="login__header">
       <h4 class="login__header-text">Войти</h4>
     </div>
     <div class="login__field">
-      <span class="login__field-icon">x</span>
       <input class="login__field-input" type="text" placeholder="username" #username value="vasya12345">
+      <span class="login__field-cancel" (click)="onResetValue(username)"><i class="icon-cancel"></i></span>
     </div>
     <div class="login__field">
-      <span class="login__field-icon">x</span>
       <input class="login__field-input" type="text" placeholder="password" #password value="vasya12345">
+      <span class="login__field-cancel" (click)="onResetValue(password)"><i class="icon-cancel"></i></span>
     </div>
     <div class="login__submit">
-      <input class="login__submit-btn" type="submit" (click)="login(username.value, password.value)">
-      <button class="login__register-btn" (click)="register()">Registration</button>
+      <input class="login__btn login__btn--submit" type="submit" value="Submit" (click)="login(username.value, password.value)">
+      <button class="login__btn login__btn--register" (click)="register()">Registration</button>
     </div>
   </form>
 </div>

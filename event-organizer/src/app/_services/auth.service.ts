@@ -16,7 +16,6 @@ export class AuthService {
   public isLoggedIn: boolean = false;
   public redirectUrl: string;
 
-
   private fetchUserFromStore() {
     let storedData = JSON.parse(localStorage.getItem(this._KEY));
 

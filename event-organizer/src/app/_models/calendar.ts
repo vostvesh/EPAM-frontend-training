@@ -51,7 +51,7 @@ export class Calendar {
     if (count && +count) {
       month += count;
     }
-    this._date = new Date(this.getYear(), month, this.getDay());
+    this._date = new Date(this.getYear(), month, 1);
     this._setCurrentTime();
   }
 

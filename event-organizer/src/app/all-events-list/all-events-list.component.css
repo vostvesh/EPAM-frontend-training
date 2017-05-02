@@ -1,10 +1,10 @@
-.user-events-list {
+.all-events-list {
   background-color: #383a4c;
   border-radius: 8px;
   padding: 40px;
 }
 
-.event {
+.all-events-list__content {
   background-color: #fff;
   border-radius: 8px;
   font-family: Arial, Helvetica, sans-serif;
@@ -13,24 +13,24 @@
   padding: 40px;
 }
 
-.event__info {
+.all-events-list__info {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom: 2px solid #515368;
 }
 
-.event__category {
+.all-events-list__category {
 
 }
 
-.event__title {
+.all-events-list__title {
   text-align: center;
 }
 
-.event__date-items {
+.all-events-list__date-items {
   border-bottom: 2px solid #515368;
 }
 
-.event__members {
+.all-events-list__members {
   border-bottom: 2px solid #515368;  
 }

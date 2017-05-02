@@ -1,10 +1,10 @@
-.app-register {
+.register {
   height: 100%;
   background-color: #19160b;
   box-sizing: border-box;
   padding-top: 40px;
 }
-.register {
+.register__form {
   max-width: 400px;
   margin: 0 auto;
   border-radius: 6px;

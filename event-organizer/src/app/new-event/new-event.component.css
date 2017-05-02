@@ -9,6 +9,9 @@
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #000;
 }
+.new-event__alert-text {
+  padding: 20px;
+}
 .new-event__header {
   margin-bottom: 10px;
 }
@@ -17,8 +20,9 @@
   margin: 0;
 }
 .new-event__field {
-  margin: 10px;
+  margin: 10px auto;
   position: relative;
+  width: 80%;
 }
 .new-event__field-decription {
   margin: 20px 0 0 0;
@@ -26,20 +30,26 @@
   color: #606170;
 }
 .new-event__field-text {
-  width: 80%;
+  width: 100%;
   font-size: 16px;
   color: #fff;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #606170;
+  padding-left: 4px;
+}
+.new-event__field-text.form-alert {
+  border-left: 3px solid crimson;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 .new-event__field-text:focus {
   outline-offset: 0;
   outline: none;
 }
 .new-event__field-textarea {
-  width: 80%;
-  max-width: 80%;
+  width: 100%;
+  max-width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #fff;
@@ -47,38 +57,36 @@
   border: none;
   border-bottom: 1px solid #606170;
 }
+.new-event__field-textarea.form-alert {
+  border-left: 3px solid crimson;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
 .new-event__field-textarea:focus {
   outline-offset: 0;
   outline: none;
 }
-.new-event__field-submit {
+.new-event__btn {
+  width: 100px;
   padding: 10px;
   border: none;
   color: #fff;
   border-radius: 6px;
-  background-color: #64a0d7;
 }
-.new-event__field-submit:hover {
+.new-event__btn:hover {
   cursor: pointer;
   box-shadow: 0px 0px 2px 2px #606170;
+}
+.new-event__btn--submit {
+  background-color: #64a0d7;  
+}
+.new-event__btn--cancel {
+  background-color: #dc6263;
 }
 .new-event__field-option {
   background-color: #383a4c;
   color: #fff;  
 }
-.new-event__date-btn {
-  width: 20px;
-  height: 20px;
-  background-image: url('../../assets/imgs/calendar.svg');
-  position: absolute;
-  right: 40px;
-  cursor: pointer;
-}
-.new-event__field--date {
-  
-}
-
-/*maps*/
-.sebm-google-map-container {
-  height: 300px;
+.new-event__btn--alert {
+  background-color: #dc6263;  
 }

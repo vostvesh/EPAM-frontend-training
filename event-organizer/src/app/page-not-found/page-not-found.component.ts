@@ -13,9 +13,9 @@ export class PageNotFoundComponent implements OnInit {
   constructor(private _authService: AuthService, private _router: Router) { }
 
   ngOnInit() {
-    if (!this._authService.isLoggedIn) {
-      this._router.navigate(['login']);
-    }
+    // if (!this._authService.isLoggedIn) {
+    //   this._router.navigate(['login']);
+    // }
   }
 
 }

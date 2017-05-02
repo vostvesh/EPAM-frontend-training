@@ -1,5 +1,5 @@
 import { Calendar } from './calendar';
-import { SocialEvent } from './social-event/social-event';
+import { SocialEvent } from './social-event';
 
 export class CalendarEventsSorter {
   private _socialEvents: SocialEvent[];
@@ -14,9 +14,8 @@ export class CalendarEventsSorter {
     let searchedDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());
 
     result = events.filter(event => {
-      let eventDate = event.dateStart;
-      let eventDay = new Date(eventDate.year, eventDate.month, eventDate.day);
-      return searchedDay.toDateString() === eventDay.toDateString();
+      let date = new Date(event.dateStart.getFullYear(), event.dateStart.getMonth(), event.dateStart.getDate());
+      return searchedDay.toDateString() === date.toDateString();
     });
 
     return result;

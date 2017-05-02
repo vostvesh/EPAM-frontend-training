@@ -7,7 +7,7 @@ import { User } from '../_models/user';
 import { SocialEventService } from '../_services/social-event.service';
 import { AuthService } from '../_services/auth.service';
 
-import { SocialEvent } from '../_models/social-event/social-event';
+import { SocialEvent } from '../_models/social-event';
 import { CalendarEventsSorter } from '../_models/calendar-events-sorter';
 
 @Component({
@@ -20,6 +20,9 @@ export class EventsCalendarComponent implements OnInit {
   private _userName: string;
 
   public days: Array<Array<number>>;
+  public date: Date = new Date();
+  public calendarDate: Date = new Date();
+
   public userEvents: SocialEvent[] = [];
   public allEvents: SocialEvent[] = [];
 
@@ -54,6 +57,29 @@ export class EventsCalendarComponent implements OnInit {
     return this.allCalendarEvents.length > 0 ? true : false;
   }
 
+  public isWeekend(i): boolean {
+    if ((i / 5) === 1 || (i / 6) === 1) {
+      return true;
+    }
+    return false;
+  }
+
+  public isAnotherMonth(day: Date): boolean {
+    if (day.getMonth() === this._calendar.getMonth()) {
+      return false;
+    }
+    return true;
+  }
+
+  public isPreviousDays(day: Date): boolean {
+    let currentDate = new Date(this.date.getFullYear(), this.date.getMonth(), this.date.getDate());
+    let date = new Date(day.getFullYear(), day.getMonth(), day.getDate());
+    if (date < currentDate) {
+      return true;
+    }
+    return false;
+  }
+
   public setUserCalendarEvents(date: Date): void {
     this.userCalendarEvents = this.calendarUserEventsSorter.sortEventsByDay(date);
   }
@@ -62,23 +88,28 @@ export class EventsCalendarComponent implements OnInit {
     this.allCalendarEvents = this.calendarAllEventsSorter.sortEventsByDay(date);
   }
 
-
-
   public getDayNames(): Array<string> {
     return this._calendar.getCalendarWeekDaysNames();
   }
 
   public updateCalendarDays(): void {
     this.days = this._calendar.getCalendarDays();
+    this.calendarDate = this._calendar.getDate();
   }
 
   public prevMonth(): void {
     this._calendar.setMonth(this._calendar.getMonth(), -1);
+    if ((this._calendar.getYear() === this.date.getFullYear()) && (this._calendar.getMonth() === this.date.getMonth())) {
+      this._calendar.setDay(this.date.getDate());
+    }
     this.updateCalendarDays();
   }
 
   public nextMonth(): void {
     this._calendar.setMonth(this._calendar.getMonth(), 1);
+    if ((this._calendar.getYear() === this.date.getFullYear()) && (this._calendar.getMonth() === this.date.getMonth())) {
+      this._calendar.setDay(this.date.getDate());
+    }
     this.updateCalendarDays();
   }
 
