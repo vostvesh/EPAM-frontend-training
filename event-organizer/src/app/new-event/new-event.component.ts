@@ -29,16 +29,12 @@ export class NewEventComponent implements OnInit {
   public eventMembersMinAge: number;
   public eventMembersMaxAge: number;
   public eventMembersGender: string;
-  public eventLocationLatitude: number = 53.9168000;
-  public eventLocationLongitude: number = 30.3449000;
+  public eventLocationLatitude: number;
+  public eventLocationLongitude: number;
   public eventLocationAddress: any[];
 
   public isCorrectDays: boolean = false;
   public isFormAlert: boolean = false;
-
-  /**maps */
-  // lat: number = 51.678418;
-  // lng: number = 7.809007;
 
   constructor(private SocialEventService: SocialEventService, 
               private authService: AuthService,

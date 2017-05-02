@@ -1,8 +1,8 @@
 <div class="location-picker">
   <input type="text" class="location-picker__input" [value]="position" (click)="onLocationPick()" (keydown)="onKeydownLocationInput($event)">
   <div class="location-picker__map" *ngIf="isVisible">
-    <sebm-google-map [latitude]="latitude" [longitude]="longitude">
-      <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude"></sebm-google-map-marker>
+    <sebm-google-map [latitude]="latitude" [longitude]="longitude" (mapClick)="onMapClicked($event)">
+      <sebm-google-map-marker [latitude]="latitude" [longitude]="longitude" [markerDraggable]="true" (dragEnd)="onMarkerDragEnd($event)"></sebm-google-map-marker>
     </sebm-google-map>
     <div class="location-picker__btns">
       <button class="location-picker__btn location-picker__btn--ok" (click)="onLocationOK(latitude, longitude)">ok</button>

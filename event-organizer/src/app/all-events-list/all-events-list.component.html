@@ -5,7 +5,8 @@
       <div class="all-events-list__author">Author: {{event.author}}</div>
       <h3 class="all-events-list__category">Category: {{event.category}}</h3>
       <h2 class="all-events-list__title">Title: {{event.name}}</h2>
-      <div class="all-events-list__location">Country: {{event.locationLatitude}}, City: {{event.locationLongitude}}</div>
+      <div class="all-events-list__location">{{event.locationAddress[0].formatted_address}}</div>
+      <app-location-picker></app-location-picker>
     </div>
     <div class="all-events-list__date-items">
       <div class="all-events-list__date-item">

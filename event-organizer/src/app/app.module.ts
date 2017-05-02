@@ -24,6 +24,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AllEventsListComponent } from './all-events-list/all-events-list.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { LocationPickerComponent } from './location-picker/location-picker.component';
+import { FormAlertComponent } from './form-alert/form-alert.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { LocationPickerComponent } from './location-picker/location-picker.compo
     PageNotFoundComponent,
     AllEventsListComponent,
     DatePickerComponent,
-    LocationPickerComponent
+    LocationPickerComponent,
+    FormAlertComponent
   ],
   imports: [
     BrowserModule,
