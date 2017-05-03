@@ -32,9 +32,9 @@
         <input class="register__text" type="date" name="dateOfBirth" [(ngModel)]="dateOfBirth" [class.alert]="!isISODate()">
       </div>
       <div class="register__field register__field--change">
-        <input class="register__radio" type="radio" checked name="gender" value="male" (click)="gender='male'">
+        <input class="register__radio" type="radio" checked name="gender" value="male" [(ngModel)]="gender">
         <span class="register__radio-descr">male</span>
-        <input class="register__radio" type="radio" name="gender" value="female" (click)="gender='female'">
+        <input class="register__radio" type="radio" name="gender" value="female" [(ngModel)]="gender">
         <span class="register__radio-descr">female</span>
       </div>
       <div class="register__field register__field--change">

@@ -93,11 +93,13 @@ export class RegisterComponent implements OnInit {
   public onRegister(form): void {
     if (this.isFormCorrect(form)) {
       this.isAlert = false;
-      let date = new Date(this.dateOfBirth);
 
       if (this.saveData) {
+        let date = new Date(this.dateOfBirth);
+        this._user = new User(this.userName, this.firstName, this.lastName, this.gender, date);
         this._authService.putUserToStore(this._user, this.passowrd);
       }
+
       this._router.navigate(['login']);
     } else {
       this.isAlert = true;
