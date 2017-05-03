@@ -9,6 +9,8 @@ import { AuthService } from '../_services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  public isAlert: boolean = false;
+  public alertMessage: string = 'Login or password is incorrect!';
 
   constructor(private _authServis: AuthService, private _router: Router) { }
 
@@ -20,6 +22,9 @@ export class LoginComponent implements OnInit {
     this._authServis.login(userName, password).subscribe(() => {
       if (this._authServis.isLoggedIn) {
         this._router.navigate(['']);
+        this.isAlert = false;
+      } else {
+        this.isAlert = true;
       }
     });
   }
@@ -34,6 +39,10 @@ export class LoginComponent implements OnInit {
 
   public onResetValue(input: any): void {
     input.value = '';
+  }
+
+  public onFormAlert(event): void {
+    this.isAlert = event;
   }
 
 }

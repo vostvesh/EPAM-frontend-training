@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { SocialEventLocation } from '../_models/social-event/social-event-location';
-import { SocialEventDate } from '../_models/social-event/social-event-date';
-import { SocialEventInfo } from '../_models/social-event/social-event-info';
-import { SocialEventMembers } from '../_models/social-event/social-event-members';
 import { SocialEvent } from '../_models/social-event';
 
 import { SocialEventService } from '../_services/social-event.service';

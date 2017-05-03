@@ -1,5 +1,6 @@
 <div class="login">
   <form class="login__form">
+    <app-form-alert *ngIf="isAlert" [message]="alertMessage" (onFormAlert)="onFormAlert($event)"></app-form-alert>
     <div class="login__header">
       <h4 class="login__header-text">Войти</h4>
     </div>
