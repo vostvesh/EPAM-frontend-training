@@ -55,14 +55,13 @@
   cursor: pointer;
 }
 .dashboard-navigation__logout {
-  padding: 10px;
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
   border: none;
   color: #fff;
   border-radius: 6px;
   background-color: #dc6263;
-  position: relative;
-  bottom: -150px;
-  left: 150px;
 }
 .dashboard-navigation__logout:hover {
   cursor: pointer;

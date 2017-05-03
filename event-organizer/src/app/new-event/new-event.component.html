@@ -1,11 +1,8 @@
 <form class="new-event" #formData>
 
-  <div class="new-event__alert" *ngIf="isFormAlert">
-    <div class="new-event__alert-text">Please input all fields correctly!</div>
-    <button class="new-event__btn new-event__btn--alert" (click)="isFormAlert=false">ok</button>
-  </div>
+  <app-form-alert [message]="formAlertMessage" *ngIf="isFormAlert" (onFormAlert)="onFormAlert($event)"></app-form-alert>
 
-  <div class="new-event__content" *ngIf="!isFormAlert">
+  <div class="new-event__content">
     <div class="new-event__header">
       <h3 class="new-event__header-text">ADD NEW EVENT</h3>
     </div>
@@ -16,14 +13,6 @@
       <input class="new-event__field-text" type="text" name="eventName" placeholder="Event Name" [(ngModel)]="eventName" [class.form-alert]="!isEventName()">
       <textarea class="new-event__field-textarea" name="description" placeholder="Description" [(ngModel)]="eventDescription" [class.form-alert]="!isEventDescription()"></textarea>
     </div>
-
-    <!--<div class="new-event__field">
-    <h4 class="new-event__field-decription" for="">Location</h4>    
-    <input  class="new-event__field-text" type="text" name="country" placeholder="Country" 
-    [(ngModel)]="country">
-    <input  class="new-event__field-text" type="text" name="city" placeholder="City" 
-    [(ngModel)]="city">
-  </div>-->
 
     <div class="new-event__field">
       <h4 class="new-event__field-decription" for="">Location</h4>

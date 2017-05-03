@@ -6,40 +6,40 @@
     <div class="register__content">
       <div class="register__field">
         <label class="register__field-title" for="">username</label>
-        <input type="text" class="register__text" name="userName" [(ngModel)]="userName">
+        <input class="register__text" type="text" name="userName" [(ngModel)]="userName">
       </div>
       <div class="register__field">
         <label class="register__field-title" for="">password</label>
-        <input type="password" class="register__text" name="password" [(ngModel)]="passowrd">
+        <input class="register__text" type="password" name="password" [(ngModel)]="passowrd">
       </div>
       <div class="register__field">
         <label class="register__field-title" for="">confirm</label>
-        <input type="password" class="register__text" name="confirmPass" [(ngModel)]="confirmPass">
+        <input class="register__text" type="password" name="confirmPass" [(ngModel)]="confirmPass">
       </div>
       <div class="register__field">
         <label class="register__field-title" for="">first name</label>
-        <input type="text" class="register__text" name="firstName" [(ngModel)]="firstName">
+        <input class="register__text" type="text" name="firstName" [(ngModel)]="firstName">
       </div>
       <div class="register__field">
         <label class="register__field-title" for="">last name</label>
-        <input type="text" class="register__text" name="lastName" [(ngModel)]="lastName">
+        <input class="register__text" type="text" name="lastName" [(ngModel)]="lastName">
       </div>
       <div class="register__field">
         <label class="register__field-title" for="">date of birth</label>
-        <input type="date" class="register__text" name="dateOfBirth" [(ngModel)]="dateOfBirth">
+        <input class="register__text" type="date" name="dateOfBirth" [(ngModel)]="dateOfBirth">
       </div>
       <div class="register__field register__field--change">
-        <input type="radio" name="gender" value="male" class="register__radio" (click)="gender='male'">
+        <input class="register__radio" type="radio" name="gender" value="male" (click)="gender='male'">
         <span class="register__radio-descr">male</span>
-        <input type="radio" name="gender" value="female" class="register__radio" (click)="gender='female'">
+        <input class="register__radio" type="radio" name="gender" value="female" (click)="gender='female'">
         <span class="register__radio-descr">female</span>
       </div>
       <div class="register__field register__field--change">
-        <input type="checkbox" checked="checked" name="saveData" class="register__checkbox" [(ngModel)]="saveData">
+        <input class="register__checkbox" type="checkbox" checked="checked" name="saveData" [(ngModel)]="saveData">
         <span class="register__checkbox-descr">save your data?</span>
       </div>
       <div class="register__field">
-        <input type="submit" class="register__submit" (click)="onRegister()">
+        <input class="register__submit" type="submit" (click)="onRegister()">
       </div>
     </div>
   </form>

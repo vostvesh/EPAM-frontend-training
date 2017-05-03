@@ -34,7 +34,7 @@ export class AllEventsListComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       let date = new Date(params['date']);
-      this.allEvents = this.calendarEventSorter.sortEventsByDay(date);
+      this.allEvents = this.calendarEventSorter.sortEventsByStartDay(date);
       this.date = date;
     });
   }

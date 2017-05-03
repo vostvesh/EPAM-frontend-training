@@ -8,6 +8,12 @@
   cursor: pointer;
 }
 
+.location-picker__input.alert {
+  border-left: 3px solid crimson;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
 .location-picker__map {
   width: 80%;
   height: 80%;

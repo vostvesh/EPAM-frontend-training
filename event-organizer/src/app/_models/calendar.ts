@@ -4,7 +4,7 @@ interface ICalendarOptions {
   numberOfLettersInDayName?: number;
 }
 
-export class Calendar {
+export class Calendar implements ICalendarOptions {
   private _date: Date;
   private _options: ICalendarOptions = {
     language: 'en-us',
@@ -22,9 +22,12 @@ export class Calendar {
     return !!day && day > 0 && new Date(year, month, day).getMonth() === month;
   }
 
-  // private _isMonth(month: number): boolean {
-  //   return !!month && month >= 0 && month < 12;
-  // }
+  private _isMonth(month: number): boolean {
+    if (month !== undefined && month !== null) {
+      return true;
+    }
+    return false;
+  }
 
   private _isYear(year: number): boolean {
     return !!year && ('' + year).length === 4;
@@ -45,9 +48,9 @@ export class Calendar {
   }
 
   public setMonth(month: number, count?: number): void {
-    // if (!this._isMonth(month)) {
-    //   throw new Error(`Incorrect {month}: ${month}`);
-    // }
+    if (!this._isMonth(month)) {
+      throw new Error(`Incorrect {month}: ${month}`);
+    }
     if (count && +count) {
       month += count;
     }

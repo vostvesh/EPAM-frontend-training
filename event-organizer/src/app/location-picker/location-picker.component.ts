@@ -10,8 +10,8 @@ import { GeolocationService } from '../_services/geolocation.service';
 export class LocationPickerComponent implements OnInit {
   public isVisible = false;
 
-  public latitude: number = 53.9051257;
-  public longitude: number = 30.3588729;
+  public latitude: number;
+  public longitude: number;
   public position: string = '';
 
   public locationJson = [];
@@ -21,6 +21,8 @@ export class LocationPickerComponent implements OnInit {
   constructor(private _geolocationService: GeolocationService) { }
 
   ngOnInit() {
+    this.findMe();
+
     this._geolocationService.getLocation(this.latitude, this.longitude)
       .subscribe(data => {
         data.forEach(element => {
@@ -29,6 +31,23 @@ export class LocationPickerComponent implements OnInit {
 
         this.position = `${this.locationJson[0].formatted_address}`;
       });
+  }
+
+  public isLocation(): boolean {
+    if (this.position) {
+      return true;
+    }
+    return false;
+  }
+
+  public findMe(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    }, () => {
+      this.latitude = 0;
+      this.longitude = 0;
+    });
   }
 
   public onKeydownLocationInput(event: KeyboardEvent): void {

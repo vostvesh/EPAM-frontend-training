@@ -1,4 +1,6 @@
-<div class="form__alert" *ngIf="isFormAlert">
-    <div class="form__alert-text">Please input all fields correctly!</div>
-    <button class="form__btn new-event__btn--alert" (click)="">ok</button>
+<div class="form-alert">
+  <div class="form-aler__content">
+    <div class="form-alert-text">{{message}}</div>
+    <button class="form-alert__btn form-alert__btn--alert" (click)="onClickOK()">ok</button>
+  </div>
 </div>

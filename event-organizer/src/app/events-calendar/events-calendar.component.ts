@@ -81,11 +81,11 @@ export class EventsCalendarComponent implements OnInit {
   }
 
   public setUserCalendarEvents(date: Date): void {
-    this.userCalendarEvents = this.calendarUserEventsSorter.sortEventsByDay(date);
+    this.userCalendarEvents = this.calendarUserEventsSorter.sortEventsByStartDay(date);
   }
 
   public setAllCalendarEvents(date: Date): void {
-    this.allCalendarEvents = this.calendarAllEventsSorter.sortEventsByDay(date);
+    this.allCalendarEvents = this.calendarAllEventsSorter.sortEventsByStartDay(date);
   }
 
   public getDayNames(): Array<string> {

@@ -35,6 +35,7 @@ export class NewEventComponent implements OnInit {
 
   public isCorrectDays: boolean = false;
   public isFormAlert: boolean = false;
+  public formAlertMessage: string = 'Please input all fields correctly!!!';
 
   constructor(private SocialEventService: SocialEventService, 
               private authService: AuthService,
@@ -130,6 +131,10 @@ export class NewEventComponent implements OnInit {
   public setMaxAge(e): void {
     this.setAge(e);
     this.eventMembersMaxAge = e.target.value;
+  }
+
+  public onFormAlert(event): void {
+    this.isFormAlert = event;
   }
 
   public onLocationPick(event: any): void {

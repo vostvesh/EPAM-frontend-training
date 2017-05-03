@@ -1,4 +1,5 @@
 .new-event {
+  position: relative;
   max-width: 400px;
   margin: 0 auto;
   border-radius: 6px;
@@ -8,9 +9,6 @@
   text-align: center;
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #000;
-}
-.new-event__alert-text {
-  padding: 20px;
 }
 .new-event__header {
   margin-bottom: 10px;
@@ -86,7 +84,4 @@
 .new-event__field-option {
   background-color: #383a4c;
   color: #fff;  
-}
-.new-event__btn--alert {
-  background-color: #dc6263;  
 }

@@ -3,12 +3,12 @@
     <div class="profile-info">
       <img class="profile-info__img" src="../../assets/imgs/user-photo.png" alt="">
       <p class="profile-info__name">{{userName}}</p>
+      <button class="dashboard-navigation__logout" (click)="logout()">LogOut</button>
     </div>
     <div class="dashboard-navigation">
       <ul class="dashboard-navigation__links">
         <li class="dashboard-navigation__link" routerLink="/user-dashboard/events-calendar" routerLinkActive="active">Events Calendar</li>
         <li class="dashboard-navigation__link" routerLink="/user-dashboard/new-event" routerLinkActive="active">Add Event</li>
-        <button class="dashboard-navigation__logout" (click)="logout()">LogOut</button>
       </ul>
     </div>
   </div>

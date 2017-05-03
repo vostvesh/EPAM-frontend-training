@@ -8,7 +8,7 @@ export class CalendarEventsSorter {
     this._socialEvents = socialEvents;
   }
 
-  public sortEventsByDay(date: Date): SocialEvent[] {
+  public sortEventsByStartDay(date: Date): SocialEvent[] {
     let result: SocialEvent[] = [];
     let events = this._socialEvents;
     let searchedDay = new Date(date.getFullYear(), date.getMonth(), date.getDate());

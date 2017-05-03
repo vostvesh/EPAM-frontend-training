@@ -33,7 +33,7 @@ export class UserEventsListComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       let date = new Date(params['date']);
-      this.userEvents = this.calendarEventSorter.sortEventsByDay(date);
+      this.userEvents = this.calendarEventSorter.sortEventsByStartDay(date);
       this.date = date;
     });
   }

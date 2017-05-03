@@ -14,7 +14,6 @@ export class SocialEventService {
   }
 
   private getAllEventsFromStore(): void {
-    // let allEvents: SocialEvent[] = [];
     let ls = JSON.parse(localStorage.getItem(this.KEY));
 
     if (ls !== null) {
@@ -23,12 +22,7 @@ export class SocialEventService {
       }
     }
 
-    // return allEvents;
   }
-
-  // public updateAllEventsList(): void {
-  //   this.allEvents = this.getAllEventsFromStore();
-  // }
 
   public geAllEvents(): SocialEvent[] {
     return this.allEvents;
@@ -42,14 +36,6 @@ export class SocialEventService {
         userEvents.push(event);
       }
     }
-    // let ls = JSON.parse(localStorage.getItem(this.KEY));
-
-    // if (ls !== null && ls[userName]) {
-    //   let userDataStorage = ls[userName];
-    //   for (let event of userDataStorage) {
-    //     userEvents.push(SocialEvent.fromJson(event));
-    //   }
-    // }
 
     return userEvents;
   }
@@ -58,7 +44,6 @@ export class SocialEventService {
     this.allEvents.push(socialEvent);
     let data = this.allEvents.map(event => SocialEvent.toJson(event));
 
-    // let data = {[userName]: userEvents.map(event => SocialEvent.toJson(event))};
     localStorage.setItem(this.KEY, JSON.stringify(data));
   }
 
