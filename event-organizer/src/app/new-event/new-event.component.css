@@ -1,4 +1,4 @@
-.new-event {
+.new-event__container {
   position: relative;
   max-width: 400px;
   margin: 0 auto;
@@ -10,23 +10,28 @@
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #000;
 }
+
 .new-event__header {
   margin-bottom: 10px;
 }
+
 .new-event__header-text {
   font-size: 16px;
   margin: 0;
 }
+
 .new-event__field {
   margin: 10px auto;
   position: relative;
   width: 80%;
 }
+
 .new-event__field-decription {
   margin: 20px 0 0 0;
   font-size: 16px;
   color: #606170;
 }
+
 .new-event__field-text {
   width: 100%;
   font-size: 16px;
@@ -36,15 +41,18 @@
   border-bottom: 1px solid #606170;
   padding-left: 4px;
 }
+
 .new-event__field-text.form-alert {
   border-left: 3px solid crimson;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
 .new-event__field-text:focus {
   outline-offset: 0;
   outline: none;
 }
+
 .new-event__field-textarea {
   width: 100%;
   max-width: 100%;
@@ -55,15 +63,18 @@
   border: none;
   border-bottom: 1px solid #606170;
 }
+
 .new-event__field-textarea.form-alert {
   border-left: 3px solid crimson;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
 }
+
 .new-event__field-textarea:focus {
   outline-offset: 0;
   outline: none;
 }
+
 .new-event__btn {
   width: 100px;
   padding: 10px;
@@ -71,16 +82,20 @@
   color: #fff;
   border-radius: 6px;
 }
+
 .new-event__btn:hover {
   cursor: pointer;
   box-shadow: 0px 0px 2px 2px #606170;
 }
+
 .new-event__btn--submit {
   background-color: #64a0d7;  
 }
+
 .new-event__btn--cancel {
   background-color: #dc6263;
 }
+
 .new-event__field-option {
   background-color: #383a4c;
   color: #fff;  

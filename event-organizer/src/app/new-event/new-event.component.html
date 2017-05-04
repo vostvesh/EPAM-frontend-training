@@ -1,4 +1,4 @@
-<form class="new-event" #formData>
+<form class="new-event__container" #formData>
 
   <app-form-alert [message]="formAlertMessage" *ngIf="isFormAlert" (onFormAlert)="onFormAlert($event)"></app-form-alert>
 
@@ -48,6 +48,7 @@
       <input class="new-event__btn new-event__btn--submit" type="submit" value="Submit" (click)="onSubmitSocialEvent(formData)">
       <input class="new-event__btn new-event__btn--cancel" type="reset" value="Cancel" (click)="onCancelSocialEvent()">
     </div>
+    
   </div>
 
 </form>

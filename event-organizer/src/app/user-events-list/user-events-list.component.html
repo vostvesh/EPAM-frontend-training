@@ -1,23 +1,33 @@
-<div class="user-events-list">
+<div class="user-events-list__container">
+
   <div class="user-events-list__header">{{date | date:"dd/MM/yyyy"}}</div>
+
   <div class="user-events-list__content" *ngFor="let event of userEvents">
+
     <div class="user-events-list__info">
       <h3 class="user-events-list__category">Category: {{event.category}}</h3>
       <h2 class="user-events-list__title">Title: {{event.name}}</h2>
       <div class="user-events-list__location">{{event.locationAddress[0].formatted_address}}</div>
     </div>
+
     <div class="user-events-list__date-items">
+
       <div class="user-events-list__date-item">
         <div class="user-events-list__date">Start Date: {{event.dateStart | date:"d MMMM y"}} Time: {{event.dateStart | date:"jm"}}</div>
       </div>
+
       <div class="user-events-list__date-item">
         <div class="user-events-list__date">End Date: {{event.dateEnd | date:"d MMMM y"}} Time: {{event.dateEnd | date:"jm"}}</div>
       </div>
+
     </div>
+
     <div class="user-events-list__members">
       <div class="user-events-list__members-number">Number of members: {{event.membersNumber}}</div>
       <div class="user-events-list__members-ages">Ages: {{event.membersMinAge}} - {{event.membersMaxAge}}</div>
       <div class="user-events-list__members-gender">Gender: {{event.membersGender}}</div>
     </div>
+
   </div>
+  
 </div>

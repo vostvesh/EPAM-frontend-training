@@ -1,20 +1,26 @@
-<div class="user-dashboard">
+<div class="user-dashboard__container">
+
   <div class="user-dashboard__sidebar">
+
     <div class="profile-info">
       <img class="profile-info__img" src="../../assets/imgs/user-photo.png" alt="">
       <p class="profile-info__name">{{userName}}</p>
       <button class="dashboard-navigation__logout" (click)="logout()">LogOut</button>
     </div>
+
     <div class="dashboard-navigation">
       <ul class="dashboard-navigation__links">
         <li class="dashboard-navigation__link" routerLink="/user-dashboard/events-calendar" routerLinkActive="active">Events Calendar</li>
         <li class="dashboard-navigation__link" routerLink="/user-dashboard/new-event" routerLinkActive="active">Add Event</li>
       </ul>
     </div>
+
   </div>
+
   <div class="user-dashboard__main">
     <div class="dashboard-content">
       <router-outlet></router-outlet>      
     </div>
   </div>
+  
 </div>

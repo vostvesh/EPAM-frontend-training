@@ -45,8 +45,8 @@ export class User {
     if (!firstName || !firstName.length) {
       throw new Error(`Incorrect {firstName}: ${firstName}`);
     }
-    if (firstName.length < 2) {
-      throw new Error(`This {firstName}: ${firstName} length must be 2 or heigther`);
+    if (firstName.length < 1) {
+      throw new Error(`This {firstName}: ${firstName} length must be 1 or heigther`);
     }
     return true;
   }

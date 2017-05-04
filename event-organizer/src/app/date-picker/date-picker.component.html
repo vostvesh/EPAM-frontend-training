@@ -1,24 +1,33 @@
-<div class="date-picker">
+<div class="date-picker__container">
+
   <input class="date-picker__input" type="text" [value]="date | date: 'short'" (click)="onDatePick()" (keydown)="onKeydownDate($event)" [class.form-alert]="!isEventEndDate()">
+
   <div class="date-picker__calendar" *ngIf="isVisible">
+
     <div class="date-picker__header">
+
       <div class="date-picker__header-select" (click)="onPrevMonth()">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="date-picker__header-arrow date-picker__header-arrow--left">
           <path d="M22 12l-20 12 7.289-12-7.289-12z"></path>
         </svg>
       </div>
+
       <div class="date-picker__header-date">
         <div class="date-picker__header-text"><span class="date-picker__header-month">{{calendar.getMonthAsString()}}</span><span class="date-picker__header-year">, {{calendar.getYear()}}</span></div>
       </div>
+
       <div class="date-picker__header-select" (click)="onNextMonth()">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="date-picker__header-arrow">
           <path d="M22 12l-20 12 7.289-12-7.289-12z"></path>
         </svg>
       </div>
+
     </div>
+
     <div class="date-picker__daynames">
       <div class="date-picker__dayname" *ngFor="let dayname of getDayNames()">{{dayname}}</div>
     </div>
+
     <div class="date-picker__days">
       <div class="date-picker__week" *ngFor="let week of days">
         <div class="date-picker__day" *ngFor="let day of week; let i=index" (click)="onClickDate(day)">
@@ -26,6 +35,7 @@
         </div>
       </div>
     </div>
+
     <div class="date-picker__footer">
       <div class="date-picker__date-time">
         <span class="date-picker__time-text">{{hours}}:{{minutes}}</span>
@@ -33,5 +43,7 @@
         <input class="date-picker__time-minutes" type="range" min="0" max="59" [(ngModel)]="minutes">        
       </div>
     </div>
+
   </div>
+  
 </div>

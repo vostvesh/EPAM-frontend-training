@@ -1,9 +1,10 @@
-.login {
+.login__container {
   height: 100%;
   background-color: #19160b;
   box-sizing: border-box;
   padding-top: 40px;
 }
+
 .login__form {
   position: relative;
   margin-top: 40px;
@@ -17,18 +18,22 @@
   padding: 20px;
   box-shadow: 0px 0px 10px 0px #000;  
 }
+
 .login__header {
   margin-bottom: 10px;
 }
+
 .login__header-text {
   font-size: 16px;
   margin: 0;
 }
+
 .login__field {
   width: 80%;
   position: relative;
   margin: 15px auto;
 }
+
 .login__field-cancel {
   width: 20px;
   height: 20px;
@@ -38,9 +43,11 @@
   cursor: pointer;
   color: #dc6263;
 }
+
 .login__field-cancel:hover {
   font-size: 110%;
 }
+
 .login__field-input {
   width: 100%;
   font-size: 16px;
@@ -49,12 +56,14 @@
   border: none;
   border-bottom: 1px solid #606170;
 }
+
 .login__submit {
   display: flex;
   justify-content: space-around;
   align-content: space-around;
   margin-top: 20px;
 }
+
 .login__btn {
   padding: 10px;
   width: 100px;
@@ -62,17 +71,21 @@
   color: #fff;
   border-radius: 6px;
 }
+
 .login__btn:hover {
   cursor: pointer;
   box-shadow: 0px 0px 2px 2px #606170;
 }
+
 .login__btn:focus {
   outline: none;
   box-shadow: none;
 }
+
 .login__btn--submit {
   background-color: #64a0d7;  
 }
+
 .login__btn--register {
   background-color: #dc6263;  
 }

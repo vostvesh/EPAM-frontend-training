@@ -1,4 +1,4 @@
-.user-events-list {
+.user-events-list__container {
   background-color: #383a4c;
   border-radius: 8px;
   padding: 40px;
@@ -17,10 +17,6 @@
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom: 2px solid #515368;
-}
-
-.user-events-list__category {
-
 }
 
 .user-events-list__title {

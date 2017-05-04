@@ -37,22 +37,14 @@
 }
 
 .events-calendar__days {
-  /*display: flex;
-  flex-direction: column;*/
   width: 14.33%;
-  /*height: 84px;*/
   margin: 2px;
-  /*padding: 10px 0;*/
   border-radius: 6px;
   background-color: #64a0d7;
   text-align: center;
-  /*cursor: pointer;*/
   font-weight: bold;
   color: #d4d4d4;
 }
-/*.events-calendar__days:hover {
-  box-shadow: 0px 0px 0px 2px #dc6263;
-}*/
 
 .events-calendar__days.weekend {
   box-shadow: 0px 0px 0px 1px #dc6263;
@@ -66,13 +58,11 @@
   background-color: #96A0AF;
 }
 
-
 .events-calendar__day {
   padding: 8px;
 }
 
 .events-calendar__global-events {
-  /*margin: -10px 0 0 0;*/
   padding: 2px;
   border-radius: 6px;
   background-color: #bad55e;
@@ -84,7 +74,6 @@
 }
 
 .events-calendar__user-events {
-  /*margin: 0 0 -10px 0;*/
   padding: 2px;
   border-radius: 6px;
   background-color: #dc6263;

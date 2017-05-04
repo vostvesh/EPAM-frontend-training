@@ -1,4 +1,5 @@
-<div class="register">
+<div class="register__container">
+
   <form class="register__form" #registerForm>
 
     <app-form-alert *ngIf="isAlert" [message]="alertMessage" (onFormAlert)="onFormAlert($event)"></app-form-alert>
@@ -6,44 +7,57 @@
     <div class="register__header">
       <h3 class="register__title">Register</h3>
     </div>
+
     <div class="register__content">
+
       <div class="register__field">
         <label class="register__field-title" for="">username</label>
         <input class="register__text" type="text" name="userName" [(ngModel)]="userName" [class.alert]="!isUserName()">
       </div>
+
       <div class="register__field">
         <label class="register__field-title" for="">password</label>
         <input class="register__text" type="password" name="password" [(ngModel)]="passowrd" [class.alert]="!isPassword()">
       </div>
+
       <div class="register__field">
         <label class="register__field-title" for="">confirm</label>
         <input class="register__text" type="password" name="confirmPass" [(ngModel)]="confirmPass" [class.alert]="!isConfirmPassword()">
       </div>
+
       <div class="register__field">
         <label class="register__field-title" for="">first name</label>
         <input class="register__text" type="text" name="firstName" [(ngModel)]="firstName" [class.alert]="!isFirstName()">
       </div>
+
       <div class="register__field">
         <label class="register__field-title" for="">last name</label>
         <input class="register__text" type="text" name="lastName" [(ngModel)]="lastName" [class.alert]="!isLastName()">
       </div>
+
       <div class="register__field">
         <label class="register__field-title" for="">date of birth</label>
         <input class="register__text" type="date" name="dateOfBirth" [(ngModel)]="dateOfBirth" [class.alert]="!isISODate()">
       </div>
+
       <div class="register__field register__field--change">
         <input class="register__radio" type="radio" checked name="gender" value="male" [(ngModel)]="gender">
         <span class="register__radio-descr">male</span>
         <input class="register__radio" type="radio" name="gender" value="female" [(ngModel)]="gender">
         <span class="register__radio-descr">female</span>
       </div>
+
       <div class="register__field register__field--change">
         <input class="register__checkbox" type="checkbox" checked="checked" name="saveData" [(ngModel)]="saveData">
         <span class="register__checkbox-descr">save your data?</span>
       </div>
+
       <div class="register__field">
         <input class="register__submit" type="submit" (click)="onRegister(registerForm)">
       </div>
+
     </div>
+
   </form>
+  
 </div>
