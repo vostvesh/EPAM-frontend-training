@@ -18,9 +18,12 @@ export class LocationPickerComponent implements OnInit {
 
   @Output() onLocationPickerOK = new EventEmitter<any>();
 
-  constructor(private _geolocationService: GeolocationService) { }
+  constructor(private _geolocationService: GeolocationService) { 
+    this.findMe();
+  }
 
   ngOnInit() {
+
     this.findMe();
 
     this._geolocationService.getLocation(this.latitude, this.longitude)
