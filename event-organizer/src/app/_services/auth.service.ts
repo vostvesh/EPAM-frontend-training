@@ -28,8 +28,10 @@ export class AuthService {
   }
 
   private isUser(userName: string, password: string): boolean {
-    if (this._user.userName === userName && this._password === password) {
-      return true;
+    if (this._user !== null) {
+      if (this._user.userName === userName && this._password === password) {
+        return true;
+      }
     }
     return false;
   }
